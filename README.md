@@ -1,5 +1,5 @@
-# ufs-workflow --- Workflows for UFS applications
----
+# ufs-workflow
+Workflows for UFS applications
 
 ## Description
 UFS-workflow is a package to configure and execute workflows for UFS applications.
@@ -22,7 +22,7 @@ Upon successful installation, a python module `ufs_workflow` will be available a
 The python module `ufs_workflow` can be imported via standard python module imports.
 
 ```
-$> python
+python
 >>> import ufs_workflow
 
 ```
