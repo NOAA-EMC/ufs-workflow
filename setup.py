@@ -29,6 +29,9 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         'pyyaml>=5.3.1',
+        'solo@git+https://github.com/JCSDA-internal/solo.git',
+        'r2d2@git+https://github.com/JCSDA-internal/r2d2.git',
+        'ewok@git+https://github.com/JCSDA-internal/ewok.git',
     ],
     package_data={
         '': ['*.ecf', '*.h', '*.yaml'],
