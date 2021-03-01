@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from solo.date import Hour
 from solo.logger import Logger
 from solo.configuration import Configuration
