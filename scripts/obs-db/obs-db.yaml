@@ -1,0 +1,54 @@
+start: 2020101218
+end: 2020101218
+step: PT6H
+obs_type:
+  - 1bamua
+  - 1bhrs4
+  - 1bmhs
+  - adpsfc
+  - adpupa
+  - aircar
+  - aircft
+  - airsev
+  - ascatt
+  - ascatw
+  - atms
+  - atmsdb
+  - avcsam
+  - avcspm
+  - bathy
+  - crisf4
+  - crsfdb
+  - dbuoyb
+  - esamua
+  - esatms
+  - eshrs3
+  - esiasi
+  - esmhs
+  - geoimr
+  - goesfv
+  - gome
+  - gpsipw
+  - gpsro
+  - iasidb
+  - mbuoyb
+  - mtiasi
+  - omi
+  - ompsn8
+  - ompst8
+  - osbuv8
+  - proflr
+  - rassda
+  - saphir
+  - satwnd
+  - sevcsr
+  - sfcshp
+  - ssmisu
+  - tesac
+  - trkob
+  - vadwnd
+ob_src: ncep
+cdump: gdas
+ob_root: /Users/rmahajan/scratch/Data/bufr
+stage: /Users/rmahajan/scratch/Test/r2d2
+database: local
