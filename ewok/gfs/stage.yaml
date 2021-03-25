@@ -1,16 +1,16 @@
 # files to copy
 copy_files:
     # source is relative to the model root (fv3-jedi)
-    - source: {model_path}/tests
+    - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests
       target: fieldsets
       files:
         - default_vars.sh
-    - source: {model_path}/tests/fv3_conf
+    - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests/fv3_conf
       target: fieldsets
       files:
         - ccpp_control_run.IN
         - model_configure
-    - source: {model_path}/tests/fv3_conf
+    - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests/fv3_conf
       target: fv3files
       files:
         - diag_table
