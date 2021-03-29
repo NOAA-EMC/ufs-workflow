@@ -1,0 +1,3 @@
+copy_files:
+  directories:
+    - $(INPUTDATA_ROOT)/$(inputdir)/global_h2o_pltc.f77 ./global_h2oprdlos.f77]

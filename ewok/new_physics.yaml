@@ -1,0 +1,3 @@
+copy_files:
+  directories:
+    - $(INPUTDATA_ROOT)/$(inputdir)/ozprdlos_2015_new_sbuvO3_tclm15_nuchem.f77 ./global_o3prdlos.f77]

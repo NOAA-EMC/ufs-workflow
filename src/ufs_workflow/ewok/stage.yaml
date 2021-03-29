@@ -1,9 +1,0 @@
-template_files:
-  template:
-    pattern: AT_SQUARE_BRACES
-    dictionaries:
-      - ../input/dict.yaml
-  directories:
-    - [../genesis/ccpp_control.nml.IN, input.nml]
-    - [../genesis/model_configure.IN, model_configure]
-    - [../genesis/nems.configure, nems.configure]

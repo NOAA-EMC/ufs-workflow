@@ -15,10 +15,10 @@ step_cycle: PT1H
 # -------------------------
 model: ufs
 
-model_repos:
-  - url: https://github.com/NOAA-EMC/ufs-workflow.git
-    branch: feature/staging
-    project: ufs-workflow
+# model_repos:
+#  - url: https://github.com/NOAA-EMC/ufs-workflow.git
+#    branch: feature/staging
+#    project: ufs-workflow
 
 # Initial conditions
 init_exp: test
@@ -26,7 +26,10 @@ init_type: an
 
 # Templates
 STAGE:
-  - git://ufs-workflow/src/ufs_workflow/ewok/stage.yaml
+# - git://ufs-workflow/src/ufs_workflow/ewok/stage_templates.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_templates.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_files.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/new_physics.yaml
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -45,3 +48,4 @@ forecast:
 
 HOST: hosts/local_mpi.yaml
 r2d2_archive_database: local
+
