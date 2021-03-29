@@ -9,10 +9,9 @@ copy_files:
       target: fieldsets
       files:
         - ccpp_control_run.IN
-        - model_configure
-    - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests/fv3_conf
+    - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests/parm
       target: fv3files
       files:
-        - diag_table
-        - data_table
-        - field_table
+        - model_configure.IN
+        - diag_table_template
+        - data_table_template
