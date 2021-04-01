@@ -1,3 +1,9 @@
+# Model related directories:
+FIX_AM: "/work/noaa/global/glopara/fix_nco_gfsv16/fix_am"
+FIX_fv3: "/work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010"
+
+
+
 # model_configure:
 ENS_NUM: 1
 TASKS: {{no_of_tasks}}
@@ -115,6 +121,8 @@ SPPT: -999.
 SHUM: -999.
 
 #IAU
+IAUFHRS: 0
+IAU_DELTHRS: 0
 IAU_INC_FILES: "''"
 IAU_DRYMASSFIXER: .false.
 

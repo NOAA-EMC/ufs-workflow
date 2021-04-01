@@ -171,8 +171,8 @@
        cplflx         = @[CPLFLX]
        cplwav         = @[CPLWAV]
        cplwav2atm     = @[CPLWAV2ATM]
-       iau_delthrs    = 6
-       iaufhrs        = 30
+       iau_delthrs    = @[IAU_DELTHRS]
+       iaufhrs        = @[IAUFHRS]
        iau_inc_files  = @[IAU_INC_FILES]
        iau_drymassfixer = @[IAU_DRYMASSFIXER]
        do_sppt        = @[DO_SPPT]
