@@ -83,9 +83,9 @@ copy_files:
     - [$(FIX_AM)/global_mxsnoalb.uariz.t1534.3072.1536.rg.grb,       ./global_mxsnoalb.uariz.t1534.3072.1536.rg.grb]
 
 # Tables: diag_table is a template with datetime and forecast length, other are static
-    - [$(DIAG_TABLE),  ./diag_table]
-    - [$(DATA_TABLE),  ./data_table]
-    - [$(FIELD_TABLE), ./field_table]
+    - [files/diag_table,  ./diag_table]
+    - [files/data_table,  ./data_table]
+    - [files/field_table, ./field_table]
 
 ## For future use
 ## CCPP Suite specific CCPP_SUITE in FV3_GSD_v0, FV3_GSD_noah
