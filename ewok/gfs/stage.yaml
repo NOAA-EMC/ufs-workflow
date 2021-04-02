@@ -5,6 +5,7 @@ copy_files:
       target: fieldsets
       files:
         - default_vars.sh
+        - atparse.bash
     - source: /work/noaa/marine/Jian.Kuang/ufs-weather-model/tests/fv3_conf
       target: fieldsets
       files:
@@ -13,5 +14,7 @@ copy_files:
       target: fv3files
       files:
         - model_configure.IN
+        - input.nml.IN
+        - nems.configure
         - diag_table_template
         - data_table_template
