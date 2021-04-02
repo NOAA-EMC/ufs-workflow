@@ -1,0 +1,57 @@
+# A single forecast expriment using the fv3-jedi gfs model.
+
+# main attributes
+suite_class: SingleForecast
+workflow_engine: ecflow
+__experiment__: ufs
+
+# General suite definitions
+# -------------------------
+init_cycle: 2018-04-14T21:00:00Z
+last_cycle: 2018-04-15T03:00:00Z
+step_cycle: PT1H
+
+# Model-related definitions
+# -------------------------
+model: ufs
+
+# model_repos:
+#  - url: https://github.com/NOAA-EMC/ufs-workflow.git
+#    branch: feature/staging
+#    project: ufs-workflow
+
+# Initial conditions
+init_exp: test
+init_type: an
+
+# Templates
+STAGE:
+# - git://ufs-workflow/src/ufs_workflow/ewok/stage_templates.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_templates.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_files.yaml
+  - /Users/claude/unix/repo/ufs-workflow/ewok/new_physics.yaml
+
+# UFS Model specifics:
+ufs_model:
+  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  HORIZONTAL_RESOLUTION: C12
+
+# How the model expects dates to be formatted (please try man strftime)
+local_date_format: '%Y%m%d.%H%M%S'
+
+horizontal_resolution: c12
+vertical_resolution: 64
+
+# forecast length
+forecast_length: PT9H
+
+# executables
+forecast:
+  exec: ufs_model.x
+  args: ''
+  ntasks: 6
+
+HOST: hosts/local_mpi.yaml
+r2d2_archive_database: local
+
