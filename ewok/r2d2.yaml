@@ -25,4 +25,3 @@ store:
       user_date_format: '%Y%m%d.%H%M%S'
       # step is unused but required
       step: 'PT06H'
-

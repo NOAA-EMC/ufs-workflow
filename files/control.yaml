@@ -1,12 +1,12 @@
 # model_configure:
 ENS_NUM: 1
-TASKS: {{no_of_tasks}}
-SYEAR: {{ic_year}}
-SMONTH: {{ic_month}}
-SDAY: {{ic_day}}
-SHOUR: {{ic_hour}}
-FHMAX: {{forecast_length_hours}}
-DT_ATMOS: {{model_timestep}}
+TASKS: $(no_of_tasks)
+SYEAR: $(ic_year)
+SMONTH: $(ic_month)
+SDAY: $(ic_day)
+SHOUR: $(ic_hour)
+FHMAX: $(forecast_length_hours)
+DT_ATMOS: $(model_timestep)
 CPL: .false.
 THRD: 1
 RESTART_INTERVAL: 0
@@ -14,7 +14,7 @@ FHROT: 0
 coupling_interval_fast_sec: 0
 QUILTING: .true.
 WRITE_GROUP: 1
-WRTTASK_PER_GROUP: {{number_of_write_tasks_per_io_group}}
+WRTTASK_PER_GROUP: $(number_of_write_tasks_per_io_group)
 OUTPUT_HISTORY: .true.
 WRITE_DOPOST: .false.
 NUM_FILES: 2
@@ -25,16 +25,16 @@ IDEFLATE: 0
 NBITS: 0
 WRITE_NEMSIOFLIP: .false.
 WRITE_FSYNCFLAG: .false.
-IMO: {{output_nlons}} # 384
-JMO: {{output_nlats}} # 192
+IMO: $(output_nlons) # 384
+JMO: $(output_nlats) # 192
 NFHOUT: 3
 NFHMAX_HF: 12
 NFHOUT_HF: 1
 
 # input_nml:
 
-INPES: {{layout_x}} # layout 1st number
-JNPES: {{layout_y}} # layout 2nd number
+INPES: $(layout_x) # layout 1st number
+JNPES: $(layout_y) # layout 2nd number
 
 # Coldstart/warmstart
 WARM_START: .false.
@@ -53,7 +53,7 @@ ICLIQ_SW: 1
 IOVR: 1
 
 # Physics
-CCPP_SUITE: {{ccpp_suite}} # FV3_GFS_2017
+CCPP_SUITE: $(ccpp_suite) # FV3_GFS_2017
 
 # Microphysics
 IMP_PHYSICS: 11
@@ -90,10 +90,10 @@ H2O_PHYS: .false.
 CPLFLX: .false.
 CPLWAV: .false.
 CPLWAV2ATM: .false.
-NPX: {{horizontal_resolution_plus_one}} # 97
-NPY: {{horizontal_resolution_plus_one}} # 97
-NPZ: {{vertical_resolution}} # 64
-NPZP: {{vertical_resolution_plus_one}} # 65
+NPX: $(horizontal_resolution_plus_one) # 97
+NPY: $(horizontal_resolution_plus_one) # 97
+NPZ: $(vertical_resolution) # 64
+NPZP: $(vertical_resolution_plus_one) # 65
 NSTF_NAME: 2,1,1,0,5
 FDIAG: 0,1,2,3,4,5,6,7,8,9,10,11,12,15,18,21,24,27,30,33,36,39,42,45,48
 

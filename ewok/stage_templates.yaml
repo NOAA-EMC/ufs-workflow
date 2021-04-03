@@ -1,9 +1,10 @@
 template_files:
+  root: ..
   template:
     pattern: AT_SQUARE_BRACES
     dictionaries:
       - files/control.yaml
   directories:
-    - [files/ccpp_control.nml.IN, input.nml]
+    - [files/control.nml.IN, input.nml]
     - [files/model_configure.IN, model_configure]
     - [files/nems.configure, nems.configure]

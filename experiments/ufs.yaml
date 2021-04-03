@@ -1,7 +1,7 @@
 # A single forecast expriment using the fv3-jedi gfs model.
 
 # main attributes
-suite_class: SingleForecast
+suite_class: ufs_workflow.UFSForecast
 workflow_engine: ecflow
 __experiment__: ufs
 
@@ -29,13 +29,14 @@ STAGE:
 # - git://ufs-workflow/src/ufs_workflow/ewok/stage_templates.yaml
   - /Users/claude/unix/repo/ufs-workflow/ewok/stage_templates.yaml
   - /Users/claude/unix/repo/ufs-workflow/ewok/stage_files.yaml
-  - /Users/claude/unix/repo/ufs-workflow/ewok/new_physics.yaml
 
 # UFS Model specifics:
 ufs_model:
-  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
-  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  HORIZONTAL_RESOLUTION: C12
+  #FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  #FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  FIX_AM: /Users/claude/Desktop/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /Users/claude/Desktop/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  HORIZONTAL_RESOLUTION: C48
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -46,11 +47,10 @@ vertical_resolution: 64
 # forecast length
 forecast_length: PT9H
 
-# executables
-forecast:
-  exec: ufs_model.x
-  args: ''
-  ntasks: 6
+executables:
+    forecast:
+      exec: ufs_model.x
+      tasks: 6
 
 HOST: hosts/local_mpi.yaml
 r2d2_archive_database: local

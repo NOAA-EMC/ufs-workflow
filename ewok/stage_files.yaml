@@ -1,4 +1,5 @@
 copy_files:
+  root: ..
   directories:
 # Files in run/INPUT directory
     - [$(FIX_fv3)/$(HORIZONTAL_RESOLUTION)/$(HORIZONTAL_RESOLUTION)_mosaic.nc,         ./INPUT/grid_spec.nc]
@@ -85,7 +86,7 @@ copy_files:
 # Tables: diag_table is a template with datetime and forecast length, other are static
     - [files/diag_table,  ./diag_table]
     - [files/data_table,  ./data_table]
-    - [files/field_table, ./field_table]
+ #   - [files/field_table, ./field_table]
 
 ## For future use
 ## CCPP Suite specific CCPP_SUITE in FV3_GSD_v0, FV3_GSD_noah
