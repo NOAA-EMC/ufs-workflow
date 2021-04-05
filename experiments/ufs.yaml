@@ -15,30 +15,24 @@ step_cycle: PT1H
 # -------------------------
 model: gfs
 
-# model_repos:
-#  - url: https://github.com/NOAA-EMC/ufs-workflow.git
-#    branch: feature/staging
-#    project: ufs-workflow
-
 # Initial conditions
 init_exp: test
 init_type: an
 
+ufs_root: /home/cgibert/repo
+
 # Templates
 STAGE:
-# - git://ufs-workflow/src/ufs_workflow/ewok/stage_templates.yaml
-  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_templates.yaml
-  - /Users/claude/unix/repo/ufs-workflow/ewok/stage_files.yaml
+  - $(ufs_root)/ufs-workflow/ewok/stage_templates.yaml
+  - $(ufs_root)/ufs-workflow/ewok/stage_files.yaml
 
-AN_TEMPLATE: /Users/claude/unix/repo/ufs-workflow/ewok/an.yaml
-R2D2: /Users/claude/unix/repo/ufs-workflow/ewok/r2d2.yaml
+AN_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/an.yaml
+R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
 
 # UFS Model specifics:
 ufs_model:
-  #FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
-  #FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  FIX_AM: /Users/claude/scratch/global/glopara/fix_nco_gfsv16/fix_am
-  FIX_fv3: /Users/claude/scratch/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
   HORIZONTAL_RESOLUTION: C48
 
 # How the model expects dates to be formatted (please try man strftime)
