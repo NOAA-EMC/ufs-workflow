@@ -7,13 +7,13 @@ __experiment__: ufs
 
 # General suite definitions
 # -------------------------
-init_cycle: 2018-04-14T21:00:00Z
-last_cycle: 2018-04-15T03:00:00Z
+init_cycle: 2016-10-03T12:00:00Z
+last_cycle: 2016-10-03T12:00:00Z
 step_cycle: PT1H
 
 # Model-related definitions
 # -------------------------
-model: ufs
+model: gfs
 
 # model_repos:
 #  - url: https://github.com/NOAA-EMC/ufs-workflow.git
@@ -30,18 +30,21 @@ STAGE:
   - /Users/claude/unix/repo/ufs-workflow/ewok/stage_templates.yaml
   - /Users/claude/unix/repo/ufs-workflow/ewok/stage_files.yaml
 
+AN_TEMPLATE: /Users/claude/unix/repo/ufs-workflow/ewok/an.yaml
+R2D2: /Users/claude/unix/repo/ufs-workflow/ewok/r2d2.yaml
+
 # UFS Model specifics:
 ufs_model:
   #FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
   #FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  FIX_AM: /Users/claude/Desktop/global/glopara/fix_nco_gfsv16/fix_am
-  FIX_fv3: /Users/claude/Desktop/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  FIX_AM: /Users/claude/scratch/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /Users/claude/scratch/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
   HORIZONTAL_RESOLUTION: C48
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
 
-horizontal_resolution: c12
+horizontal_resolution: c192
 vertical_resolution: 64
 
 # forecast length
@@ -49,9 +52,12 @@ forecast_length: PT9H
 
 executables:
     forecast:
-      exec: ufs_model.x
-      tasks: 6
+      exec: ufs
+
 
 HOST: hosts/local_mpi.yaml
 r2d2_archive_database: local
+
+# where to find scripts
+custom_scripts: py://ufs_workflow
 

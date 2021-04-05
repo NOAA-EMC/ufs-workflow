@@ -1,0 +1,7 @@
+%include "%ECF_INCLUDE%/head.h"
+
+timestamp
+%EWOK_LAUNCH% %EWOK_BIN_PATH%/%EWOK_BIN% $yaml
+timestamp
+
+%include "%ECF_INCLUDE%/tail.h"

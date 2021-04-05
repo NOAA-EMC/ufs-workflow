@@ -34,7 +34,12 @@ setuptools.setup(
         'ewok@git+https://github.com/JCSDA-internal/ewok.git',
     ],
     package_data={
-        '': ['*.ecf', '*.h', '*.yaml'],
+        '': [
+           'hosts/*.yaml',
+           'workflows/ecflow/tasks/*.ecf',
+           'workflows/ecflow/include/*.h',
+           'tasks/*.sh'
+        ]
     },
     include_package_data=True,
 )
