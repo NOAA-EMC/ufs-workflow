@@ -49,7 +49,7 @@ executables:
       exec: ufs
 
 
-HOST: hosts/local_mpi.yaml
+HOST: hosts/orion.yaml
 r2d2_archive_database: local
 
 # where to find scripts
