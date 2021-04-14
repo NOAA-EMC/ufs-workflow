@@ -1,4 +1,4 @@
-# parameters
-para1: a
-para2: naa
-para3: 0.03
+# files to copy
+para1: 1
+para2: yes
+para3: cloud
