@@ -1,0 +1,18 @@
+start: 2015010100
+end: 2015010400
+#end: 2016123100
+step: PT24H
+experiment: soca_ref
+obs_type:
+  - adt_c2
+  - adt_j2
+  - adt_sa
+  - icec_EMC
+  - icefb_GDR
+  - insitu_hgodas
+  - sst_metopa
+  - sst_noaa19
+ob_src: tsluka
+ob_root: /work/noaa/marine/rmahajan/soca-data/obs
+stage: /work/noaa/marine/rmahajan/soca-data/r2d2
+database: local
