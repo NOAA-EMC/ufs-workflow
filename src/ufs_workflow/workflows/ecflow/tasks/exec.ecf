@@ -1,7 +1,9 @@
 %include "%ECF_INCLUDE%/head.h"
 
+eval $(ewok_source_config $CONFIG_FILE stage_dir)
+cd $stage_dir
 timestamp
-%EWOK_LAUNCH% %EWOK_BIN_PATH%/%EWOK_BIN% $yaml
+%EWOK_LAUNCH% ./ufs.x
 timestamp
 
 %include "%ECF_INCLUDE%/tail.h"
