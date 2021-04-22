@@ -19,7 +19,7 @@ model: gfs
 init_exp: test
 init_type: an
 
-ufs_root: /home/cgibert/repo
+ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
 
 # Templates
 STAGE:
@@ -44,9 +44,9 @@ vertical_resolution: 64
 # forecast length
 forecast_length: PT9H
 
-executables:
-    forecast:
-      exec: ufs
+
+forecast:
+  exec: ufs
 
 
 HOST: hosts/local_mpi.yaml
