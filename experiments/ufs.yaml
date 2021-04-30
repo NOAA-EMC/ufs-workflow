@@ -16,7 +16,7 @@ step_cycle: PT1H
 model: gfs
 
 # Initial conditions
-init_exp: test
+init_exp: fv3_control
 init_type: an
 
 ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
@@ -33,7 +33,7 @@ R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
 ufs_model:
   FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
   FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  HORIZONTAL_RESOLUTION: C48
+  HORIZONTAL_RESOLUTION: C192
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -44,13 +44,13 @@ vertical_resolution: 64
 # forecast length
 forecast_length: PT9H
 
-
 forecast:
-  exec: ufs
-
+  exec: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/fv3_control/ufs_model
+  ntasks: 150
 
 HOST: hosts/orion.yaml
 r2d2_archive_database: local
+r2d2_fetch_database: local
 
 # where to find scripts
 custom_scripts: py://ufs_workflow
