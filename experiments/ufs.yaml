@@ -19,8 +19,8 @@ model: gfs
 init_exp: fv3_control
 init_type: an
 
-#ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
-ufs_root: /home/cgibert/repo
+ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
+#ufs_root: /home/cgibert/repo
 
 # Templates
 STAGE:
@@ -47,11 +47,12 @@ forecast_length: PT9H
 
 forecast:
   exec: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/fv3_control/ufs_model
-  ntasks: 150
+  nodes: 10
+  tasks: 15
 
 HOST: hosts/orion.yaml
 r2d2_archive_database: local
-r2d2_fetch_database: local
+r2d2_fetch_database: default
 
 # where to find scripts
 custom_scripts: py://ufs_workflow

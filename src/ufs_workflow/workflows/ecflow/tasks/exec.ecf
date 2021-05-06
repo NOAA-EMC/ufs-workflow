@@ -3,7 +3,15 @@
 eval $(ewok_source_config $CONFIG_FILE current_dir)
 cd $current_dir
 timestamp
-%EWOK_LAUNCH% ./ufs_model
+
+#set +x
+#module purge
+module use /work/noaa/da/rmahajan/work/UFS/standalone/ufs-weather-model/modulefiles
+module load ufs_orion.intel
+module list
+#set -x
+
+%EWOK_LAUNCH% %EWOK_BIN%
 timestamp
 
 %include "%ECF_INCLUDE%/tail.h"
