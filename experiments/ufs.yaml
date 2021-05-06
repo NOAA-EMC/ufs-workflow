@@ -19,7 +19,8 @@ model: gfs
 init_exp: fv3_control
 init_type: an
 
-ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
+#ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
+ufs_root: /home/cgibert/repo
 
 # Templates
 STAGE:
