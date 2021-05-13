@@ -46,9 +46,9 @@ vertical_resolution: 64
 forecast_length: PT9H
 
 forecast:
-  exec: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/fv3_control/ufs_model
-  nodes: 10
-  tasks: 15
+  exec: ls 
+  nodes: 1
+  tasks: 1
 
 HOST: hosts/orion.yaml
 r2d2_archive_database: local
@@ -57,3 +57,4 @@ r2d2_fetch_database: default
 # where to find scripts
 custom_scripts: py://ufs_workflow
 
+CONTROL: $(ufs_root)/ufs-workflow/files/control.yaml

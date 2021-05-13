@@ -5,13 +5,19 @@ cd $current_dir
 timestamp
 
 #set +x
-#module purge
+module save ewok_default
 module use /work/noaa/da/rmahajan/work/UFS/standalone/ufs-weather-model/modulefiles
 module load ufs_orion.intel
-module list
 #set -x
 
+set +e
 %EWOK_LAUNCH% %EWOK_BIN%
+result=$?
 timestamp
+module restore ewok_default
+set -e
+if [ $? -ne 0 ]; then
+    exit 1
+fi
 
 %include "%ECF_INCLUDE%/tail.h"
