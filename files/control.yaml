@@ -53,7 +53,7 @@ ICLIQ_SW: 1
 IOVR: 1
 
 # Physics
-CCPP_SUITE: $(ccpp_suite) # FV3_GFS_2017
+CCPP_SUITE: $(CCPP_SUITE) # FV3_GFS_2017
 
 # Microphysics
 IMP_PHYSICS: 11

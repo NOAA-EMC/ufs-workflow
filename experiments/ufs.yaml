@@ -35,6 +35,7 @@ ufs_model:
   FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
   FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
   HORIZONTAL_RESOLUTION: C192
+  CCPP_SUITE: FV3_GFS_2017
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -46,7 +47,7 @@ vertical_resolution: 64
 forecast_length: PT9H
 
 forecast:
-  exec: ls 
+  exec: ls
   nodes: 1
   tasks: 1
 
