@@ -1,0 +1,5 @@
+window_begin: ${CYCLEWINBEGIN}
+current_dir: ${PWD}
+local_current_cycle: ${FV3BKGTIME}
+current_cycle: ${CYCLESTR}
+background_time: ${CYCLEBKGTIME}
