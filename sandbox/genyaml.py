@@ -19,7 +19,11 @@ logger = Logger('genYAML')
 @click.argument('task', required=True)
 @click.argument('expdir', required=True)
 @click.argument('yamlout', required=True)
-def gen_yaml(task, expdir, yamlout, quiet=False, readonly=False):
+def run_gen_yaml(task, expdir, yamlout):
+    # wrapper to call main function
+    gen_yaml(task, expdir, yamlout)
+
+def gen_yaml(task, expdir, yamlout=None, quiet=False):
     # parse, concatenate, replace vars in YAML and write a new
     # YAML file for the specified task/executable/script
     # get list of config YAMLs to read
@@ -46,13 +50,13 @@ def gen_yaml(task, expdir, yamlout, quiet=False, readonly=False):
     config_out = replace_vars(config_out)
     # clean the YAML
     config_out = clean_yaml(config_out, config_temp)
-    if not readonly:
+    if yamlout:
         # write YAML file for this task
         target_dir = os.path.dirname(yamlout)
         target_name = os.path.basename(yamlout)
         config_out.save(target_dir=target_dir, target_name=target_name)
-    if not quiet:
-        logger.info(f'YAML for task {task} written to {yamlout}')
+        if not quiet:
+            logger.info(f'YAML for task {task} written to {yamlout}')
     return config_out
 
 def get_config_list(task):
@@ -105,4 +109,4 @@ def clean_yaml(config_out, config_template):
     return config_out
 
 if __name__ == '__main__':
-    gen_yaml()
+    run_gen_yaml()
