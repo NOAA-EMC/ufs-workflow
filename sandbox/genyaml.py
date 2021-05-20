@@ -10,13 +10,16 @@ mydir = pathlib.Path(__file__).parent.absolute()
 
 config_dict = {
     'hofx': ['base', 'hofx', 'cycle'],
+    'stageObs': ['base', 'hofx', 'cycle'],
 }
+
+logger = Logger('genYAML')
 
 @click.command()
 @click.argument('task', required=True)
 @click.argument('expdir', required=True)
 @click.argument('yamlout', required=True)
-def gen_yaml(task, expdir, yamlout, quiet=False):
+def gen_yaml(task, expdir, yamlout, quiet=False, readonly=False):
     # parse, concatenate, replace vars in YAML and write a new
     # YAML file for the specified task/executable/script
     # get list of config YAMLs to read
@@ -26,7 +29,7 @@ def gen_yaml(task, expdir, yamlout, quiet=False):
     for yamlfile in config_list:
         yamlpath = os.path.join(expdir,f'{yamlfile}.yaml')
         if not quiet:
-            print(f'Reading {yamlpath}')
+            logger.info(f'Reading {yamlpath}')
         tmp_config = Configuration(yamlpath)
         config.update(tmp_config)
     # read in template
@@ -43,12 +46,13 @@ def gen_yaml(task, expdir, yamlout, quiet=False):
     config_out = replace_vars(config_out)
     # clean the YAML
     config_out = clean_yaml(config_out, config_temp)
-    # write YAML file for this task
-    target_dir = os.path.dirname(yamlout)
-    target_name = os.path.basename(yamlout)
-    config_out.save(target_dir=target_dir, target_name=target_name)
+    if not readonly:
+        # write YAML file for this task
+        target_dir = os.path.dirname(yamlout)
+        target_name = os.path.basename(yamlout)
+        config_out.save(target_dir=target_dir, target_name=target_name)
     if not quiet:
-        print(f'YAML for task {task} written to {yamlout}')
+        logger.info(f'YAML for task {task} written to {yamlout}')
     return config_out
 
 def get_config_list(task):
