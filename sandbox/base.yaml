@@ -1,0 +1,9 @@
+window_length: 'PT6H'
+fcst_length: 'PT6H'
+bundle: /work/noaa/da/cmartin/ewok_experiments/a00a/bundle
+jedi_build: $(bundle)/build
+experiment: UFS-test
+experiment_dir: /work/noaa/stmp/cmartin/$(experiment)
+stage_dir: $(experiment_dir)/stage
+geom_inc: $(bundle)/fv3-jedi/ewok/gfs/geometry_c768.yaml
+state_inc: $(bundle)/fv3-jedi/ewok/gfs/bg.yaml
