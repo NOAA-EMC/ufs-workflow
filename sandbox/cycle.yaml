@@ -1,5 +1,5 @@
-window_begin: ${CYCLEWINBEGIN}
+window_begin: ${CYCLEWINBEGIN} # YYYY-MM-DDTHH:MM:SSZ`
 current_dir: ${PWD}
-local_current_cycle: ${FV3BKGTIME}
-current_cycle: ${CYCLESTR}
-background_time: ${CYCLEBKGTIME}
+local_current_cycle: ${FV3BKGTIME} # YYYYMMDD.HHMMSS
+current_cycle: ${CYCLESTR} # YYYY-MM-DDTHH:MM:SSZ
+background_time: ${CYCLEBKGTIME} # YYYY-MM-DDTHH:MM:SSZ
