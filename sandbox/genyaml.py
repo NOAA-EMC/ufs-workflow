@@ -16,7 +16,7 @@ config_dict = {
 @click.argument('task', required=True)
 @click.argument('expdir', required=True)
 @click.argument('yamlout', required=True)
-def gen_yaml(task, expdir, yamlout):
+def gen_yaml(task, expdir, yamlout, quiet=False):
     # parse, concatenate, replace vars in YAML and write a new
     # YAML file for the specified task/executable/script
     # get list of config YAMLs to read
@@ -25,7 +25,8 @@ def gen_yaml(task, expdir, yamlout):
     config = Configuration(os.path.join(expdir,'base.yaml'))
     for yamlfile in config_list:
         yamlpath = os.path.join(expdir,f'{yamlfile}.yaml')
-        print(f'Reading {yamlpath}')
+        if not quiet:
+            print(f'Reading {yamlpath}')
         tmp_config = Configuration(yamlpath)
         config.update(tmp_config)
     # read in template
@@ -46,7 +47,9 @@ def gen_yaml(task, expdir, yamlout):
     target_dir = os.path.dirname(yamlout)
     target_name = os.path.basename(yamlout)
     config_out.save(target_dir=target_dir, target_name=target_name)
-    print(f'YAML for task {task} written to {yamlout}')
+    if not quiet:
+        print(f'YAML for task {task} written to {yamlout}')
+    return config_out
 
 def get_config_list(task):
     # for the specified task, return a list of YAML files
