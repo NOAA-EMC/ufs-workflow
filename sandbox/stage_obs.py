@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-from solo.date import Hour, JediDate, DateIncrement
 from solo.logger import Logger
 from solo.basic_files import mkdir
-from r2d2 import fetch, date_sequence
+from r2d2 import fetch
 from genyaml import gen_yaml as get_config
 import click
 

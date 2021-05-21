@@ -7,3 +7,4 @@ experiment_dir: /work/noaa/stmp/cmartin/$(experiment)
 stage_dir: $(experiment_dir)/stage
 geom_inc: $(bundle)/fv3-jedi/ewok/gfs/geometry_c768.yaml
 state_inc: $(bundle)/fv3-jedi/ewok/gfs/bg.yaml
+model_resolution: c768

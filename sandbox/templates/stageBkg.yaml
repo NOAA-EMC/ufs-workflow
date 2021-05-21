@@ -1,0 +1,6 @@
+cycle: '{{current_cycle}}'
+forecast_steps: $(forecast_steps)
+bkg_exp: $(bkg_exp)
+bkg_db: $(bkg_db)
+bkg_dir: $(bkg_dir)
+bkg_tiles: $(bkg_tiles)
