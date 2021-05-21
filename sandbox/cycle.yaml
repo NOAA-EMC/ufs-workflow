@@ -4,7 +4,7 @@
 # current_cycle: ${CYCLESTR} # YYYY-MM-DDTHH:MM:SSZ
 # background_time: ${CYCLEBKGTIME} # YYYY-MM-DDTHH:MM:SSZ
 window_begin: 2020-12-15T15:00:00Z
-current_dir: ${PWD}
+current_dir: $(experiment_dir)/{{current_cycle}}/RESTART # stupid name in JCSDA YAML...
 local_current_cycle: 20201215.180000
 current_cycle: 2020-12-15T18:00:00Z
 background_time: 2020-12-15T18:00:00Z

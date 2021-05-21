@@ -3,6 +3,7 @@ from solo.logger import Logger
 from solo.basic_files import mkdir
 from solo.stage import Stage
 from genyaml import gen_yaml as get_config
+import os
 import click
 
 
@@ -16,8 +17,8 @@ def stage_fv3jedi(expdir):
     config = get_config('stageFV3JEDI', expdir, quiet=True)
     logger.info("Preparing to stage FV3-JEDI fix files")
     mkdir(config['stage_dir'])
-    for stage,values in config['fv3jedi_stage_files'].items():
-        print(stage, values)
+    path = os.path.dirname(config['fv3jedi_stage'])
+    stage = Stage(path, config['stage_dir'], config['fv3jedi_stage_files'])
 
 if __name__ == '__main__':
     stage_fv3jedi()

@@ -1,6 +1,6 @@
 window_length: 'PT6H'
 fcst_length: 'PT6H'
-bundle: /work/noaa/da/cmartin/ewok_experiments/a00a/bundle
+bundle: /work/noaa/da/cmartin/noscrub/JEDI/stable/fv3-bundle
 jedi_build: $(bundle)/build
 fv3jedi_stage: $(bundle)/fv3-jedi/ewok/gfs/stage.yaml
 experiment: UFS-test
