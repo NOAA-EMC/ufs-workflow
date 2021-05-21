@@ -12,6 +12,7 @@ config_dict = {
     'hofx': ['base', 'hofx', 'cycle'],
     'stageObs': ['base', 'hofx', 'cycle'],
     'stageBkg': ['base', 'hofx', 'cycle'],
+    'stageFV3JEDI': ['base'], 
 }
 
 logger = Logger('genYAML')
