@@ -11,6 +11,7 @@ mydir = pathlib.Path(__file__).parent.absolute()
 config_dict = {
     'hofx': ['base', 'hofx', 'cycle'],
     'stageObs': ['base', 'hofx', 'cycle'],
+    'stageBkg': ['base', 'hofx', 'cycle'],
 }
 
 logger = Logger('genYAML')

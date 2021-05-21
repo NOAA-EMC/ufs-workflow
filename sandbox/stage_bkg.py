@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from solo.date import Hour, DateIncrement
 from solo.logger import Logger
 from solo.basic_files import mkdir
 from r2d2 import fetch
@@ -15,17 +16,19 @@ def stage_bkg(expdir):
     config = get_config('stageBkg', expdir, quiet=True)
     logger.info(f"Preparing to stage backgrounds for {config['cycle']}")
     mkdir(config['bkg_dir'])
+    # get background time
+    bkg_time = Hour(config['cycle']) - DateIncrement(config['window_length'])
     # fetch the coupler file first
     fetch(
         type='fc',
         model='gfs_metadata',
         experiment=config['bkg_exp'],
-        date=config['cycle'],
+        date=bkg_time,
         step=config['forecast_steps'],
         resolution=config['model_resolution'],
         user_date_format='%Y%m%d.%H%M%S',
         fc_date_rendering='analysis',
-        database=config['bkg_dir'],
+        database=config['bkg_db'],
         target_file=f"{config['bkg_dir']}/$(valid_date).coupler.res",
     )
     # fetch the tile files
@@ -33,12 +36,12 @@ def stage_bkg(expdir):
         type='fc',
         model='gfs',
         experiment=config['bkg_exp'],
-        date=config['cycle'],
+        date=bkg_time,
         step=config['forecast_steps'],
         resolution=config['model_resolution'],
         user_date_format='%Y%m%d.%H%M%S',
         fc_date_rendering='analysis',
-        database=config['bkg_dir'],
+        database=config['bkg_db'],
         target_file=f"{config['bkg_dir']}/$(valid_date).$(file_type).tile$(tile).nc",
         tile=config['bkg_tiles'],
         file_type=['fv_core.res', 'fv_srf_wnd.res', 'fv_tracer.res', 'phy_data', 'sfc_data'],
