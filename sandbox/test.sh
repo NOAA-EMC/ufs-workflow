@@ -1,9 +1,12 @@
 #!/bin/bash
+set -eux
+set +x
 source /work/noaa/da/Cory.R.Martin/noscrub/UFO_eval/env/ioda_diags.env.bash
+set -x
 
 ulimit -s unlimited
 
-gitdir=/work/noaa/da/Cory.R.Martin/noscrub/git/ufs-workflow/
+gitdir=$PWD/..
 hofxexe=/work/noaa/da/Cory.R.Martin/noscrub/JEDI/stable/fv3-bundle/build/bin/fv3jedi_hofx_nomodel.x
 
 cd $gitdir/sandbox
