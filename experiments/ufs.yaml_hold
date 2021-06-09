@@ -1,0 +1,57 @@
+# A single forecast expriment using the fv3-jedi gfs model.
+
+# main attributes
+suite_class: ufs_workflow.UFSForecast
+workflow_engine: ecflow
+__experiment__: ufs
+
+# General suite definitions
+# -------------------------
+init_cycle: 2016-10-03T12:00:00Z
+last_cycle: 2016-10-03T12:00:00Z
+step_cycle: PT1H
+
+# Model-related definitions
+# -------------------------
+model: gfs
+
+# Initial conditions
+init_exp: fv3_control
+init_type: an
+
+ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
+
+# Templates
+STAGE:
+  - $(ufs_root)/ufs-workflow/ewok/stage_templates.yaml
+  - $(ufs_root)/ufs-workflow/ewok/stage_files.yaml
+
+AN_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/an.yaml
+R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
+
+# UFS Model specifics:
+ufs_model:
+  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  HORIZONTAL_RESOLUTION: C192
+
+# How the model expects dates to be formatted (please try man strftime)
+local_date_format: '%Y%m%d.%H%M%S'
+
+horizontal_resolution: c192
+vertical_resolution: 64
+
+# forecast length
+forecast_length: PT9H
+
+forecast:
+  exec: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/fv3_control/ufs_model
+  ntasks: 150
+
+HOST: hosts/orion.yaml
+r2d2_archive_database: local
+r2d2_fetch_database: rmahajan_local
+
+# where to find scripts
+custom_scripts: py://ufs_workflow
+

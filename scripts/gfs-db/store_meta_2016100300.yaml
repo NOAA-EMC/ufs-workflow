@@ -1,0 +1,650 @@
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-03T06:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: PT6H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161003.060000'
+    valid_day: '03'
+    valid_hour: '06'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161003.060000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.PT6H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-03T12:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: PT12H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161003.120000'
+    valid_day: '03'
+    valid_hour: '12'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161003.120000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.PT12H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-03T18:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: PT18H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161003.180000'
+    valid_day: '03'
+    valid_hour: '18'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161003.180000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.PT18H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-04T00:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P1D
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161004.000000'
+    valid_day: '04'
+    valid_hour: '00'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161004.000000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P1D.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-04T06:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P1DT6H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161004.060000'
+    valid_day: '04'
+    valid_hour: '06'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161004.060000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P1DT6H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-04T12:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P1DT12H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161004.120000'
+    valid_day: '04'
+    valid_hour: '12'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161004.120000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P1DT12H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-04T18:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P1DT18H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161004.180000'
+    valid_day: '04'
+    valid_hour: '18'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161004.180000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P1DT18H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-05T00:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P2D
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161005.000000'
+    valid_day: '05'
+    valid_hour: '00'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161005.000000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P2D.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-05T06:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P2DT6H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161005.060000'
+    valid_day: '05'
+    valid_hour: '06'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161005.060000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P2DT6H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-05T12:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P2DT12H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161005.120000'
+    valid_day: '05'
+    valid_hour: '12'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161005.120000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P2DT12H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-05T18:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P2DT18H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161005.180000'
+    valid_day: '05'
+    valid_hour: '18'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161005.180000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P2DT18H.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-06T00:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P3D
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161006.000000'
+    valid_day: '06'
+    valid_hour: '00'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161006.000000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P3D.coupler.res
+- action: store
+  missing: false
+  request:
+    _archive_path: $(model)/$(type)/$(experiment)/$(resolution)/$(init_year)-$(init_month)-$(init_day)
+    _cache_files: false
+    _combine:
+    - date
+    - step
+    _file_extensions:
+      fv3_meta: res
+    _symlink:
+    - gfs_metadata
+    - gfs
+    _templates:
+      an: $(archive_init_date).coupler
+      fc: $(archive_init_date).$(step).coupler
+    archive_init_date: '2016-10-03T00:00:00Z'
+    archive_valid_date: '2016-10-06T06:00:00Z'
+    cutoff: long
+    database: local
+    date: '20161003.000000'
+    day: '03'
+    default_user_date_format: '%Y-%m-%dT%H:%M:%SZ'
+    experiment: fv3_control
+    fc_date_rendering: analysis
+    file_format: fv3_meta
+    full_report: true
+    hour: '00'
+    ignore_missing: false
+    init_date: '20161003.000000'
+    init_day: '03'
+    init_hour: '00'
+    init_month: '10'
+    init_year: '2016'
+    model: gfs_metadata
+    month: '10'
+    report: store_meta_2016100300.yaml
+    resolution: c192
+    source_file: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/$(valid_date).coupler.res
+    step: P3DT6H
+    type: fc
+    user_date_format: '%Y%m%d.%H%M%S'
+    valid_date: '20161006.060000'
+    valid_day: '06'
+    valid_hour: '06'
+    valid_month: '10'
+    valid_year: '2016'
+    year: '2016'
+  source: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART/20161006.060000.coupler.res
+  target: /work/noaa/da/jkuang/work/JEDI/workflow/var/tmp/R2D2/gfs/fc/fv3_control/c192/2016-10-03/2016-10-03T00:00:00Z.P3DT6H.coupler.res

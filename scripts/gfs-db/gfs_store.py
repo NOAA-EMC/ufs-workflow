@@ -15,8 +15,9 @@ for date in dates:
     ymd = Hour(date).format('%Y%m%d')
     hh = Hour(date).format('%H')
 
-    directory = f'{config.fc_root}/{ymdh}/{config.cdump}.{ymd}/{hh}/atmos/RESTART'
+    #directory = f'{config.fc_root}/{ymdh}/{config.cdump}.{ymd}/{hh}/atmos/RESTART'
 
+    directory = f'{config.fc_root}'
     # Archive the metadata (coupler.res)
     store(
         type='fc',
@@ -46,7 +47,7 @@ for date in dates:
         database=config.database,
         file_type=['fv_core.res', 'fv_srf_wnd.res', 'fv_tracer.res', 'phy_data', 'sfc_data'],
         tile=config.tiles,
-        source_file=f'{directory}/$(valid_date).$(file_type).tile$(tile).nc'
+        source_file=f'{directory}/$(valid_date).$(file_type).tile$(tile).nc',
         full_report='yes',
         report=f'store_{date}.yaml'
         )

@@ -1,23 +1,16 @@
 %include "%ECF_INCLUDE%/head.h"
 
-eval $(ewok_source_config $CONFIG_FILE current_dir)
-cd $current_dir
-timestamp
-
-#set +x
-module save ewok_default
-module use /work/noaa/da/rmahajan/work/UFS/standalone/ufs-weather-model/modulefiles
+module purge
+module use /work/noaa/marine/Jian.Kuang/ufs-weather-model/modulefiles
 module load ufs_orion.intel
-#set -x
 
-set +e
-%EWOK_LAUNCH% %EWOK_BIN%
-result=$?
-timestamp
-module restore ewok_default
-set -e
-if [ $? -ne 0 ]; then
-    exit 1
-fi
+set -x
+
+cd $workflow_dir/../stage
+pwd
+
+cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
+
+srun ufs_model
 
 %include "%ECF_INCLUDE%/tail.h"

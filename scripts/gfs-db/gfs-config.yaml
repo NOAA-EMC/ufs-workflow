@@ -1,10 +1,10 @@
-start: 2020121418
-end: 2021011312
+start: 2016100300
+end: 2016100300
 step: PT6H
-experiment: ufoeval
+experiment: fv3_control
 cdump: gdas
-resolution: c768
-forecast_steps: [PT3H, PT4H, PT5H, PT6H, PT7H, PT8H, PT9H]
+resolution: c192
+forecast_steps: [PT6H, PT12H, PT18H, PT24H, PT30H, PT36H, PT42H, PT48H, PT54H, PT60H, PT66H, PT72H, PT78H]
 forecast_files:
     - coupler.res
     - fv_core.res
@@ -13,8 +13,8 @@ forecast_files:
     - phy_data
     - sfc_data
 tiles: [1, 2, 3, 4, 5, 6]
-fc_root: /Users/rmahajan/scratch/Data/c768_v15ics_v16tag
-stage: /Users/rmahajan/scratch/Test/r2d2
+fc_root: /work/noaa/da/rmahajan/work/UFS/standalone/stmp/RESTART
+stage: /work/noaa/marine/Jian.Kuang/jcsda/r2d2-test
 user_date_format: '%Y%m%d.%H%M%S'
 fc_date_rendering: 'analysis'
 database: local

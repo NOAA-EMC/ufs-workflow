@@ -1,0 +1,376 @@
+AN_TEMPLATE:
+  filename: '{{current_cycle}}/INPUT/{{local_current_cycle}}.$(file_type).tile$(tile).nc'
+  type: an
+AN_TEMPLATE_origin: /work/noaa/da/rmahajan/work/Workflow/JEDI/ufs-workflow/ewok/an.yaml
+CONTROL:
+  CA_GLOBAL: .false.
+  CA_SGS: .false.
+  CCPP_SUITE: FV3_GFS_2017
+  CPL: .false.
+  CPLFLX: .false.
+  CPLWAV: .false.
+  CPLWAV2ATM: .false.
+  DNATS: '1'
+  DO_CA: .false.
+  DO_RRTMGP: .false.
+  DO_SAT_ADJ: .true.
+  DO_SHUM: .false.
+  DO_SKEB: .false.
+  DO_SPPT: .false.
+  DT_ATMOS: $(model_timestep)
+  EFFR_IN: .false.
+  ENS_NUM: '1'
+  EXTERNAL_IC: .true.
+  FDIAG: 0,1,2,3,4,5,6,7,8,9,10,11,12,15,18,21,24,27,30,33,36,39,42,45,48
+  FHCYC: '24'
+  FHMAX: $(forecast_length_hours)
+  FHROT: '0'
+  FILENAME_BASE: '''dyn'' ''phy'''
+  FNABSC: global_mxsnoalb.uariz.t1534.3072.1536.rg.grb
+  FNALBC: global_snowfree_albedo.bosu.t1534.3072.1536.rg.grb
+  FNSMCC: global_soilmgldas.statsgo.t1534.3072.1536.grb
+  FNSOTC: global_soiltype.statsgo.t1534.3072.1536.rg.grb
+  FNVETC: global_vegtype.igbp.t1534.3072.1536.rg.grb
+  H2O_PHYS: .false.
+  HYBEDMF: .true.
+  IAER: '111'
+  IALB: '1'
+  IAUFHRS: '0'
+  IAU_DELTHRS: '0'
+  IAU_DRYMASSFIXER: .false.
+  IAU_INC_FILES: ''''''
+  ICLIQ_SW: '1'
+  ICLOUD: '0'
+  IDEFLATE: '0'
+  IEMS: '1'
+  IMFDEEPCNV: '2'
+  IMFSHALCNV: '2'
+  IMO: $(output_nlons)
+  IMP_PHYSICS: '11'
+  INPES: $(layout_x)
+  IOVR: '1'
+  ISATMEDMF: '0'
+  JMO: $(output_nlats)
+  JNPES: $(layout_y)
+  LDIAG3D: .false.
+  LGFDLMPRAD: .false.
+  LHEATSTRG: .false.
+  LNDP_EACH_STEP: .false.
+  LNDP_TYPE: '0'
+  LSM: '1'
+  MAKE_NH: .true.
+  MAX_OUTPUT_FIELDS: '300'
+  MOUNTAIN: .false.
+  NA_INIT: '1'
+  NBITS: '0'
+  NFHMAX_HF: '12'
+  NFHOUT: '3'
+  NFHOUT_HF: '1'
+  NGGPS_IC: .true.
+  NPX: $(horizontal_resolution_plus_one)
+  NPY: $(horizontal_resolution_plus_one)
+  NPZ: '64'
+  NPZP: $(vertical_resolution_plus_one)
+  NSTF_NAME: 2,1,1,0,5
+  NUM_FILES: '2'
+  NWAT: '6'
+  N_VAR_LNDP: '0'
+  OUTPUT_FILE: netcdf
+  OUTPUT_GRID: cubed_sphere_grid'
+  OUTPUT_HISTORY: .true.
+  OZ_PHYS_NEW: .false.
+  OZ_PHYS_OLD: .true.
+  QDIAG3D: .false.
+  QUILTING: .true.
+  READ_INCREMENT: .false.
+  RESTART_INTERVAL: '0'
+  SATMEDMF: .false.
+  SDAY: $(ic_day)
+  SHOUR: $(ic_hour)
+  SHUM: '-999.'
+  SKEB: '-999.'
+  SMONTH: $(ic_month)
+  SPPT: '-999.'
+  SYEAR: $(ic_year)
+  TASKS: $(no_of_tasks)
+  THRD: '1'
+  WARM_START: .false.
+  WRITE_DOPOST: .false.
+  WRITE_FSYNCFLAG: .false.
+  WRITE_GROUP: '1'
+  WRITE_NEMSIOFLIP: .false.
+  WRITE_RESTART_WITH_BCS: .false.
+  WRTTASK_PER_GROUP: $(number_of_write_tasks_per_io_group)
+  coupling_interval_fast_sec: '0'
+CONTROL_origin: /work/noaa/da/rmahajan/work/Workflow/JEDI/ufs-workflow/files/control.yaml
+HOST:
+  build:
+    cores: '8'
+    exec_cmd: ''
+    launch: ''
+  copy:
+    exec_cmd: ''
+    launch: ''
+  default:
+    account: da-cpu
+    cores: '1'
+    exec_cmd: sbatch -W
+    include_header: slurm.h
+    launch: srun
+    nodes: '1'
+    partition: orion
+    processors: '1'
+    qos: batch
+    tasks: '1'
+    wall_time: 00:30:00
+  executable:
+    nodes: '1'
+    tasks: '24'
+  processing:
+    cores: '1'
+  r2d2:
+    exec_cmd: ''
+    launch: ''
+HOST_origin: /home/rmahajan/pyvenv/ufs_test/lib/python3.7/site-packages/ewok/hosts/orion.yaml
+R2D2:
+  fetch:
+    an:
+    - file_type:
+      - fv_core.res
+      - fv_srf_wnd.res
+      - fv_tracer.res
+      - sfc_data
+      - phy_data
+      tile:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      user_date_format: '%Y%m%d.%H%M%S'
+    - model: gfs_metadata
+      target_file: /work/noaa/da/jkuang/ewok_experiments/ufs/stage/INPUT/coupler.res
+      user_date_format: '%Y%m%d.%H%M%S'
+  store:
+    an:
+    - file_type:
+      - fv_core.res
+      - fv_srf_wnd.res
+      - fv_tracer.res
+      - sfc_data
+      - phy_data
+      tile:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      user_date_format: '%Y%m%d.%H%M%S'
+    - model: gfs_metadata
+      source_file: /work/noaa/da/jkuang/ewok_experiments/ufs/ewok/{{current_cycle}}/{{local_current_cycle}}.coupler.res
+      user_date_format: '%Y%m%d.%H%M%S'
+R2D2_origin: /work/noaa/da/rmahajan/work/Workflow/JEDI/ufs-workflow/ewok/r2d2.yaml
+STAGE:
+- template_files:
+    destination: stage_dir
+    directories:
+    - - ../files/control.nml.IN
+      - input.nml
+    - - ../files/model_configure.IN
+      - model_configure
+    - - ../files/nems.configure
+      - nems.configure
+    root: ..
+    template:
+      dictionaries:
+      - /work/noaa/da/jkuang/ewok_experiments/ufs/ecflow/ufs.yaml
+      pattern: AT_SQUARE_BRACES
+- copy_files:
+    directories:
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_mosaic.nc
+      - ./INPUT/grid_spec.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile1.nc
+      - ./INPUT/C192_grid.tile1.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile2.nc
+      - ./INPUT/C192_grid.tile2.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile3.nc
+      - ./INPUT/C192_grid.tile3.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile4.nc
+      - ./INPUT/C192_grid.tile4.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile5.nc
+      - ./INPUT/C192_grid.tile5.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_grid.tile6.nc
+      - ./INPUT/C192_grid.tile6.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile1.nc
+      - ./INPUT/oro_data.tile1.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile2.nc
+      - ./INPUT/oro_data.tile2.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile3.nc
+      - ./INPUT/oro_data.tile3.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile4.nc
+      - ./INPUT/oro_data.tile4.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile5.nc
+      - ./INPUT/oro_data.tile5.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010/C192/C192_oro_data.tile6.nc
+      - ./INPUT/oro_data.tile6.nc
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/ozprdlos_2015_new_sbuvO3_tclm15_nuchem.f77
+      - ./global_o3prdlos.f77
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_h2o_pltc.f77
+      - ./global_h2oprdlos.f77
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_solarconstant_noaa_an.txt
+      - ./solarconstant_noaa_an.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_sfc_emissivity_idx.txt
+      - ./sfc_emissivity_idx.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_co2historicaldata_glob.txt
+      - ./co2historicaldata_glob.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/co2monthlycyc.txt
+      - ./co2monthlycyc.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2009.txt
+      - ./co2historicaldata_2009.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2010.txt
+      - ./co2historicaldata_2010.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2011.txt
+      - ./co2historicaldata_2011.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2012.txt
+      - ./co2historicaldata_2012.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2013.txt
+      - ./co2historicaldata_2013.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2014.txt
+      - ./co2historicaldata_2014.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2015.txt
+      - ./co2historicaldata_2015.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2016.txt
+      - ./co2historicaldata_2016.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2017.txt
+      - ./co2historicaldata_2017.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2018.txt
+      - ./co2historicaldata_2018.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2019.txt
+      - ./co2historicaldata_2019.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2020.txt
+      - ./co2historicaldata_2020.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/fix_co2_proj/global_co2historicaldata_2021.txt
+      - ./co2historicaldata_2021.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_climaeropac_global.txt
+      - ./aerosol.dat
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1850-1859.txt
+      - ./volcanic_aerosols_1850-1859.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1860-1869.txt
+      - ./volcanic_aerosols_1860-1869.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1870-1879.txt
+      - ./volcanic_aerosols_1870-1879.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1880-1889.txt
+      - ./volcanic_aerosols_1880-1889.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1890-1899.txt
+      - ./volcanic_aerosols_1890-1899.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1900-1909.txt
+      - ./volcanic_aerosols_1900-1909.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1910-1919.txt
+      - ./volcanic_aerosols_1910-1919.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1920-1929.txt
+      - ./volcanic_aerosols_1920-1929.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1930-1939.txt
+      - ./volcanic_aerosols_1930-1939.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1940-1949.txt
+      - ./volcanic_aerosols_1940-1949.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1950-1959.txt
+      - ./volcanic_aerosols_1950-1959.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1960-1969.txt
+      - ./volcanic_aerosols_1960-1969.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1970-1979.txt
+      - ./volcanic_aerosols_1970-1979.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1980-1989.txt
+      - ./volcanic_aerosols_1980-1989.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_volcanic_aerosols_1990-1999.txt
+      - ./volcanic_aerosols_1990-1999.txt
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_glacier.2x2.grb
+      - ./global_glacier.2x2.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_maxice.2x2.grb
+      - ./global_maxice.2x2.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/RTGSST.1982.2012.monthly.clim.grb
+      - ./RTGSST.1982.2012.monthly.clim.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_snoclim.1.875.grb
+      - ./global_snoclim.1.875.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_albedo4.1x1.grb
+      - ./global_albedo4.1x1.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/CFSR.SEAICE.1982.2012.monthly.clim.grb
+      - ./CFSR.SEAICE.1982.2012.monthly.clim.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_tg3clim.2.6x1.5.grb
+      - ./global_tg3clim.2.6x1.5.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_vegfrac.0.144.decpercent.grb
+      - ./global_vegfrac.0.144.decpercent.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_slmask.t1534.3072.1536.grb
+      - ./global_slmask.t1534.3072.1536.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_shdmin.0.144x0.144.grb
+      - ./global_shdmin.0.144x0.144.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_shdmax.0.144x0.144.grb
+      - ./global_shdmax.0.144x0.144.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_slope.1x1.grb
+      - ./global_slope.1x1.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_snowfree_albedo.bosu.t1534.3072.1536.rg.grb
+      - ./global_snowfree_albedo.bosu.t1534.3072.1536.rg.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_vegtype.igbp.t1534.3072.1536.rg.grb
+      - ./global_vegtype.igbp.t1534.3072.1536.rg.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_soiltype.statsgo.t1534.3072.1536.rg.grb
+      - ./global_soiltype.statsgo.t1534.3072.1536.rg.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_soilmgldas.statsgo.t1534.3072.1536.grb
+      - ./global_soilmgldas.statsgo.t1534.3072.1536.grb
+    - - /work/noaa/global/glopara/fix_nco_gfsv16/fix_am/global_mxsnoalb.uariz.t1534.3072.1536.rg.grb
+      - ./global_mxsnoalb.uariz.t1534.3072.1536.rg.grb
+    - - ../files/diag_table
+      - ./diag_table
+    - - ../files/data_table
+      - ./data_table
+    - - ../files/field_table
+      - ./field_table
+STAGE_origin:
+- /work/noaa/da/rmahajan/work/Workflow/JEDI/ufs-workflow/ewok/stage_templates.yaml
+- /work/noaa/da/rmahajan/work/Workflow/JEDI/ufs-workflow/ewok/stage_files.yaml
+__experiment__: ufs
+bc_experiment: oper
+bg_frequency: PT1H
+bias_correction_provider: gsi
+bin: /work/noaa/da/jkuang/ewok_experiments/ufs/bundle/build/bin
+build: /work/noaa/da/jkuang/ewok_experiments/ufs/bundle/build
+build_target: /work/noaa/da/jkuang/ewok_experiments/ufs/bundle/build/$(target)
+bundle: /work/noaa/da/jkuang/ewok_experiments/ufs/bundle
+current_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/ewok/{{current_cycle}}
+custom_scripts: /home/rmahajan/pyvenv/ufs_test/lib/python3.7/site-packages/ufs_workflow
+experiment: ufs
+experiment_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/ewok
+experiment_root: /work/noaa/da/jkuang/ewok_experiments/ufs
+forecast:
+  exec: ls
+  nodes: '1'
+  tasks: '1'
+forecast_length: PT9H
+horizontal_resolution: c192
+init_cycle: '2016-10-03T12:00:00Z'
+init_exp: fv3_control
+init_type: an
+jedi_build: /work/noaa/da/jkuang/ewok_experiments/ufs/bundle/build
+last_cycle: '2016-10-03T12:00:00Z'
+local_date_format: '%Y%m%d.%H%M%S'
+model: gfs
+obs_exp: oper
+observation_provider: ncdiag
+r2d2_archive_database: local
+r2d2_fetch_database: default
+r2d2_store_database: default
+stage_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/stage
+step_cycle: PT1H
+suite_class: ufs_workflow.UFSForecast
+suite_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/ecflow
+tmp_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/tmp
+ufs_model:
+  CCPP_SUITE: FV3_GFS_2017
+  FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  HORIZONTAL_RESOLUTION: C192
+ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
+vertical_resolution: '64'
+window length: $(window_length)
+workflow_dir: /work/noaa/da/jkuang/ewok_experiments/ufs/ecflow
+workflow_engine: ecflow
