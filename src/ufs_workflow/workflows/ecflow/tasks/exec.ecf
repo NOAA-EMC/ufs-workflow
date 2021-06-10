@@ -6,7 +6,8 @@ module load ufs_orion.intel
 
 set -x
 
-cd $workflow_dir/../stage
+eval $(ewok_source_config $CONFIG_FILE current_dir stage_dir)
+cd $current_dir
 pwd
 
 cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
