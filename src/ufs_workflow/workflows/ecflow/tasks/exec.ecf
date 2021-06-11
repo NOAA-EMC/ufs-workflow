@@ -10,7 +10,7 @@ cd $current_dir
 pwd
 
 cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
-cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_hold/control_c192/INPUT/gfs_ctrl.nc INPUT/gfs_ctrl.nc
+cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_hold/control_c192/INPUT/gfs_ctrl.nc $current_dir/INPUT/gfs_ctrl.nc
 
 srun ufs_model
 
