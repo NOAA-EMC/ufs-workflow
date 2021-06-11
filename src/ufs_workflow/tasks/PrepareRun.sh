@@ -34,6 +34,10 @@ with open('input.nml','w') as fd:
     fd.write(input_nml)
     fd.close()
 
+with open('model_configure','r') as fd:
+    temp = fd.read()
+    fd.close()
+
 model_configure = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
 with open('model_configure','w') as fd:
     fd.write(model_configure)
