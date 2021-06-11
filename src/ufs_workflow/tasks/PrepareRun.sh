@@ -29,27 +29,27 @@ with open('control.nml.IN','r') as fd:
     temp = fd.read()
     fd.close()
 
-input_nml = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
+input_nml_content = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
 with open('input.nml','w') as fd:
-    fd.write(input_nml)
+    fd.write(input_nml_content)
     fd.close()
 
 with open('model_configure.IN','r') as fd:
     temp = fd.read()
     fd.close()
 
-model_configure = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
+model_configure_content = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
 with open('model_configure','w') as fd:
-    fd.write(model_configure)
+    fd.write(model_configure_content)
     fd.close()
 
 with open('diag_table','r') as fd:
     temp = fd.read()
     fd.close()
 
-diag_table = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
+diag_table_content = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
 with open('diag_table','w') as fd:
-    fd.write(diag_table)
+    fd.write(diag_table_content)
     fd.close()
 
 EOF
