@@ -60,6 +60,10 @@ ic_day: 3
 ic_hour: 12
 ic_month: 10
 ic_year: 2016
+day: 3
+hour: 12
+month: 10
+year: 2016
 no_of_tasks: 28
 number_of_write_tasks_per_io_group: 4
 output_nlats: 384
