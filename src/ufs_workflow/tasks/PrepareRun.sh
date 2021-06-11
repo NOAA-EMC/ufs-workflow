@@ -25,7 +25,7 @@ def expand_config(d):
 
 expand_config(config_toplevel)
 
-with open('control.nml.IN','r') as fd:
+with open('input.nml','r') as fd:
     temp = fd.read()
     fd.close()
 
@@ -34,7 +34,7 @@ with open('input.nml','w') as fd:
     fd.write(input_nml_content)
     fd.close()
 
-with open('model_configure.IN','r') as fd:
+with open('model_configure','r') as fd:
     temp = fd.read()
     fd.close()
 
@@ -47,7 +47,7 @@ with open('diag_table','r') as fd:
     temp = fd.read()
     fd.close()
 
-diag_table_content = Template.substitute_structure(temp, TemplateConstants.AT_SQUARE_BRACES, config.get)
+diag_table_content = Template.substitute_structure(temp, TemplateConstants.DOLLAR_PARENTHESES, config.get)
 with open('diag_table','w') as fd:
     fd.write(diag_table_content)
     fd.close()
