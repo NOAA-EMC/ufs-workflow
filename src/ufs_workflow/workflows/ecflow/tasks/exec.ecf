@@ -1,6 +1,5 @@
 %include "%ECF_INCLUDE%/head.h"
 
-module purge
 module use /work/noaa/marine/Jian.Kuang/ufs-weather-model/modulefiles
 module load ufs_orion.intel
 
