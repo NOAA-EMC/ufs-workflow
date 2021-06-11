@@ -5,8 +5,8 @@ mkdir -p $current_dir || true
 cp -r $stage_dir/* $current_dir
 cd $current_dir
 
-module use /home/jkuang/opt/modulefiles/apps
-module load ufs_test/1.0.0
+#module use /home/jkuang/opt/modulefiles/apps
+#module load ufs_test/1.0.0
 
 cat << EOF > conf_var.py
 import sys
