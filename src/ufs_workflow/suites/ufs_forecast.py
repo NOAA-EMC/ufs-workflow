@@ -14,7 +14,7 @@ class UFSForecast:
             step = 'config.step_cycle'
             with suite.add('fcCycle', start=start, stop=stop, step=step) as cycle:
                 prep = cycle.add('PrepareRun', stage)
-                analysis = cycle.add('GetAnalysis', prep, exec_class='r2d2')
+                analysis = cycle.add('GetUFSAnalysis', prep)
                 fc = cycle.add('Forecast', setup, analysis, exec_class='executable', exec='forecast')
                 archive = cycle.add('SaveForecast', fc, exec_class='r2d2')
                 cycle.add('CleanCycles', archive, exec_class='copy')
