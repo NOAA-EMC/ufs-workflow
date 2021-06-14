@@ -38,7 +38,7 @@ setuptools.setup(
            'hosts/*.yaml',
            'workflows/ecflow/tasks/*.ecf',
            'workflows/ecflow/include/*.h',
-           'tasks/*.sh'
+           'tasks/*'
         ]
     },
     include_package_data=True,

@@ -14,6 +14,7 @@ step_cycle: PT1H
 # Model-related definitions
 # -------------------------
 model: gfs
+warm_start: .true.
 
 # Initial conditions
 init_exp: fv3_control
@@ -28,6 +29,7 @@ STAGE:
   - $(ufs_root)/ufs-workflow/ewok/stage_files.yaml
 
 AN_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/an.yaml
+RS_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/rs.yaml
 R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
 
 # UFS Model specifics:

@@ -37,7 +37,7 @@ INPES: $(layout_x) # layout 1st number
 JNPES: $(layout_y) # layout 2nd number
 
 # Coldstart/warmstart
-WARM_START: .false.
+WARM_START: $(warm_start)
 READ_INCREMENT: .false.
 NGGPS_IC: .true.
 EXTERNAL_IC: .true.
