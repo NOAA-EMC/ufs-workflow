@@ -100,7 +100,7 @@
        no_dycore = .false.
        z_tracer = .T.
        read_increment = @[READ_INCREMENT]
-       res_latlon_dynamics = "fv3_increment.nc"
+       res_latlon_dynamics = ""
 /
 
 &external_ic_nml
