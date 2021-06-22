@@ -1,12 +1,3 @@
-&amip_interp_nml
-       interp_oi_sst = .true.
-       use_ncep_sst = .true.
-       use_ncep_ice = .false.
-       no_anom_sst = .false.
-       data_set = 'reynolds_oi',
-       date_out_of_range = 'climo',
-/
-
 &atmos_model_nml
        blocksize = 32
        chksum_debug = .false.
@@ -25,14 +16,15 @@
        max_files_w = 100,
 /
 
+&mpp_io_nml
+shuffle=1
+deflate_level=1
+/
+
 &fms_nml
        clock_grain = 'ROUTINE',
        domains_stack_size = 3000000,
        print_memory_usage = .false.
-/
-
-&fv_grid_nml
-       grid_file = 'INPUT/grid_spec.nc'
 /
 
 &fv_core_nml
@@ -47,28 +39,29 @@
        fv_debug = .F.
        range_warn = .F.
        reset_eta = .F.
-       n_sponge = 24
-       nudge_qv = .T.
-       tau = 5.
+       n_sponge = 42
+       nudge_qv = .true.
+       nudge_dz = .false.
+       tau = 10.
        rf_cutoff = 7.5e2
-       d2_bg_k1 = 0.15
+       d2_bg_k1 = 0.20
        d2_bg_k2 = 0.02
        kord_tm = -9
-       kord_mt =  9
-       kord_wz =  9
-       kord_tr =  9
-       hydrostatic = .F.
-       phys_hydrostatic = .F.
-       use_hydro_pressure = .F.
+       kord_mt = 9
+       kord_wz = 9
+       kord_tr = 9
+       hydrostatic = .false.
+       phys_hydrostatic = .false.
+       use_hydro_pressure = .false.
        beta = 0.
        a_imp = 1.
        p_fac = 0.1
        k_split  = 2
        n_split  = 6
-       nwat = 2
+       nwat = 6
        na_init = @[NA_INIT]
        d_ext = 0.0
-       dnats = 0
+       dnats = 1
        fv_sg_adj = 450
        d2_bg = 0.
        nord =  2
@@ -79,19 +72,20 @@
        ke_bg = 0.
        do_vort_damp = .true.
        external_ic = @[EXTERNAL_IC]
-       external_eta = .T.
+       external_eta = .true.
        gfs_phil = .false.
        nggps_ic = @[NGGPS_IC]
        mountain = @[MOUNTAIN]
-       ncep_ic = .F.
+       ncep_ic = .false.
        d_con = 1.
-       hord_mt =  6
-       hord_vt =  6
-       hord_tm =  6
-       hord_dp =  6
+       hord_mt =  5
+       hord_vt =  5
+       hord_tm =  5
+       hord_dp =  -5
        hord_tr = 8
        adjust_dry_mass = .F.
        consv_te = 1.
+       do_sat_adj = .true.
        consv_am = .F.
        fill = .T.
        dwind_2d = .F.
@@ -99,33 +93,36 @@
        warm_start = @[WARM_START]
        no_dycore = .false.
        z_tracer = .T.
+       agrid_vel_rst = .true.
        read_increment = @[READ_INCREMENT]
-       res_latlon_dynamics = ""
+       res_latlon_dynamics = ''
 /
 
 &external_ic_nml
        filtered_terrain = .true.
        levp = @[NPZP]
        gfs_dwinds = .true.
-       checker_tr = .F.
+       checker_tr = .false.
        nt_checker = 0
 /
 
 &gfs_physics_nml
        fhzero         = 6.
+       h2o_phys       = @[H2O_PHYS]
        ldiag3d        = .false.
        fhcyc          = 24.
-       nst_anl        = .true.
        use_ufo        = .true.
        pre_rad        = .false.
-       ncld           = 1
-       imp_physics    = 99
+       ncld           = 5
+       imp_physics    = 11
        pdfcld         = .false.
        fhswr          = 3600.
        fhlwr          = 3600.
        ialb           = 1
        iems           = 1
-       IAER           = 111
+       iaer           = 5111
+       icliq_sw       = 2
+       iovr           = 3
        ico2           = 2
        isubc_sw       = 2
        isubc_lw       = 2
@@ -134,24 +131,25 @@
        swhtr          = .true.
        cnvgwd         = .true.
        shal_cnv       = .true.
-       cal_pre        = .true.
+       cal_pre        = .false.
        redrag         = .true.
        dspheat        = .true.
        hybedmf        = @[HYBEDMF]
        satmedmf       = @[SATMEDMF]
+       isatmedmf      = @[ISATMEDMF]
        lheatstrg      = @[LHEATSTRG]
-       random_clds    = .true.
-       trans_trac     = .false.
+       random_clds    = .false.
+       trans_trac     = .true.
        cnvcld         = .true.
        imfshalcnv     = 2
        imfdeepcnv     = 2
-       isatmedmf      = @[ISATMEDMF]
-       cdmbgwd        = 3.5,0.25
+       cdmbgwd        = 0.14,1.8,1.0,1.0
        prslrd0        = 0.
        ivegsrc        = 1
        isot           = 1
+       lsoil          = 4
        lsm            = 1
-       iopt_dveg      = 2
+       iopt_dveg      = 1
        iopt_crs       = 1
        iopt_btr       = 1
        iopt_run       = 1
@@ -166,41 +164,72 @@
        debug          = .false.
        oz_phys        = @[OZ_PHYS_OLD]
        oz_phys_2015   = @[OZ_PHYS_NEW]
-       h2o_phys       = @[H2O_PHYS]
        nstf_name      = @[NSTF_NAME]
-       cplflx         = @[CPLFLX]
+       nst_anl        = .true.
+       psautco        = 0.0008,0.0005
+       prautco        = 0.00015,0.00015
+       lgfdlmprad     = .true.
        cplwav         = @[CPLWAV]
        cplwav2atm     = @[CPLWAV2ATM]
-       iau_delthrs    = @[IAU_DELTHRS]
-       iaufhrs        = @[IAUFHRS]
-       iau_inc_files  = @[IAU_INC_FILES]
-       iau_drymassfixer = @[IAU_DRYMASSFIXER]
+       effr_in      = .true.
+       ldiag_ugwp   = .false.
+       do_ugwp      = .false.
+       do_tofd      = .true.
        do_sppt        = @[DO_SPPT]
        do_shum        = @[DO_SHUM]
        do_skeb        = @[DO_SKEB]
        lndp_type      = @[LNDP_TYPE]
        n_var_lndp     = @[N_VAR_LNDP]
-       do_ca          = .false.
-       ca_sgs         = .false.
-       nca            = 1
-       ncells         = 5
-       nlives         = 30
-       nseed          = 1000000
-       nfracseed      = 0.5
-       nthresh        = 0.
-       ca_trigger     = .true.
-       ca_entr	      = .false.
-       ca_closure     = .false.
-       ca_global      = .false.
-       nca_g          = 1
-       ncells_g       = 1
-       nlives_g       = 100
-       nseed_g        = 100
-       ca_smooth      = .false.
-       nspinup        = 100
-       iseed_ca       = 1
-       nsmooth        = 1
-       ca_amplitude   = 0.5
+/
+
+&gfdl_cloud_microphysics_nml
+  sedi_transport = .true.
+  do_sedi_heat = .false.
+  rad_snow = .true.
+  rad_graupel = .true.
+  rad_rain = .true.
+  const_vi = .F.
+  const_vs = .F.
+  const_vg = .F.
+  const_vr = .F.
+  vi_max = 1.
+  vs_max = 2.
+  vg_max = 12.
+  vr_max = 12.
+  qi_lim = 1.
+  prog_ccn = .false.
+  do_qa = .true.
+  fast_sat_adj = .true.
+  tau_l2v = 225.
+  tau_v2l = 150.
+  tau_g2v = 900.
+  rthresh = 10.e-6  ! This is a key parameter for cloud water
+  dw_land  = 0.16
+  dw_ocean = 0.10
+  ql_gen = 1.0e-3
+  ql_mlt = 1.0e-3
+  qi0_crt = 8.0E-5
+  qs0_crt = 1.0e-3
+  tau_i2s = 1000.
+  c_psaci = 0.05
+  c_pgacs = 0.01
+  rh_inc = 0.30
+  rh_inr = 0.30
+  rh_ins = 0.30
+  ccn_l = 300.
+  ccn_o = 100.
+  c_paut = 0.5
+  c_cracw = 0.8
+  use_ppm = .false.
+  use_ccn = .true.
+  mono_prof = .true.
+  z_slope_liq  = .true.
+  z_slope_ice  = .true.
+  de_ice = .false.
+  fix_negative = .true.
+  icloud_f = 1
+  mp_time = 150.
+  reiflag = 2
 /
 
 &interpolator_nml
@@ -233,21 +262,27 @@
        FSMCL(2) = 99999
        FSMCL(3) = 99999
        FSMCL(4) = 99999
+       LANDICE  = .true.
        FTSFS    = 90
+       FAISL    = 99999
        FAISS    = 99999
        FSNOL    = 99999
+       FSNOS    = 99999
        FSICL    = 99999
-       FTSFL    = 99999,
-       FAISL    = 99999,
-       FVETL    = 99999,
+       FSICS    = 99999
+       FTSFL    = 99999
+       FVETL    = 99999
        FSOTL    = 99999,
        FvmnL    = 99999,
        FvmxL    = 99999,
        FSLPL    = 99999,
        FABSL    = 99999,
-       FSNOS    = 99999,
-       FSICS    = 99999,
 /
+
+&fv_grid_nml
+  grid_file = 'INPUT/grid_spec.nc'
+/
+
 &nam_stochy
   SKEBNORM=1,
   SKEB_NPASS=30,
@@ -270,6 +305,7 @@
   ISEED_SKEB=2,
   ISEED_SPPT=3,
 /
+
 &nam_sfcperts
   lndp_type      = @[LNDP_TYPE]
   LNDP_TAU=21600,
