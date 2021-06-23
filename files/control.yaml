@@ -40,10 +40,10 @@ JNPES: $(layout_y) # layout 2nd number
 WARM_START: $(warm_start)
 READ_INCREMENT: .false.
 NGGPS_IC: $(nggps_ic)
-EXTERNAL_IC: .true.
+EXTERNAL_IC: .false.
 MAKE_NH: .false.
 MOUNTAIN: .false.
-NA_INIT: 1
+NA_INIT: 0
 
 # Radiation
 DO_RRTMGP: .false.
@@ -61,15 +61,15 @@ NWAT: 6
 # GFDL MP
 DNATS: 1
 DO_SAT_ADJ: .true.
-LHEATSTRG: .false.
+LHEATSTRG: .F.
 LGFDLMPRAD: .false.
 EFFR_IN: .false.
 # Thompson MP
 
 # PBL
-SATMEDMF: .false.
-ISATMEDMF: 0
-HYBEDMF: .true.
+SATMEDMF: .true.
+ISATMEDMF: 1
+HYBEDMF: .false.
 
 # Shallow/deep convection
 # These are hard-wired
@@ -83,9 +83,9 @@ IALB: 1
 IEMS: 1
 
 # Ozone / stratospheric H2O
-OZ_PHYS_OLD: .true.
-OZ_PHYS_NEW: .false.
-H2O_PHYS: .false.
+OZ_PHYS_OLD: .F.
+OZ_PHYS_NEW: .T.
+H2O_PHYS: .true.
 
 CPLFLX: .false.
 CPLWAV: .false.
