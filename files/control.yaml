@@ -42,7 +42,7 @@ READ_INCREMENT: .false.
 NGGPS_IC: $(nggps_ic)
 EXTERNAL_IC: .false.
 MAKE_NH: .false.
-MOUNTAIN: .false.
+MOUNTAIN: .true.
 NA_INIT: 0
 
 # Radiation
