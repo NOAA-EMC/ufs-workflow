@@ -36,13 +36,13 @@ R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
 ufs_model:
   FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
   FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  HORIZONTAL_RESOLUTION: C192
+  HORIZONTAL_RESOLUTION: C96
   CCPP_SUITE: FV3_GFS_v16
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
 
-horizontal_resolution: c192
+horizontal_resolution: c96
 vertical_resolution: 64
 
 # forecast length
@@ -56,7 +56,7 @@ output_nlons: 1
 output_nlats: 1
 layout_x: 2
 layout_y: 2
-horizontal_resolution_plus_one: 193
+horizontal_resolution_plus_one: 97
 vertical_resolution_plus_one: 65
 ic_day: 3
 ic_hour: 12
@@ -66,8 +66,8 @@ day: 3
 hour: 12
 month: 10
 year: 2016
-no_of_tasks: 28
-number_of_write_tasks_per_io_group: 4
+no_of_tasks: 30
+number_of_write_tasks_per_io_group: 6
 output_nlats: 384
 output_nlons: 768
 # These values should be processed through some methods instead of 
@@ -76,7 +76,7 @@ output_nlons: 768
 forecast:
   exec: pwd
   nodes: 1
-  tasks: 28
+  tasks: 30
 
 HOST: hosts/orion.yaml
 r2d2_archive_database: local
