@@ -1,0 +1,88 @@
+# A single forecast expriment using the fv3-jedi gfs model.
+
+# main attributes
+suite_class: ufs_workflow.UFSForecast
+workflow_engine: ecflow
+__experiment__: ufs
+
+# General suite definitions
+# -------------------------
+init_cycle: 2021-03-22T18:00:00Z
+last_cycle: 2021-03-22T18:00:00Z
+step_cycle: PT1H
+
+# Model-related definitions
+# -------------------------
+model: gfs
+warm_start: .true.
+nggps_ic: .false.
+
+# Initial conditions
+init_exp: fv3_control
+init_type: an
+
+ufs_root: /work/noaa/marine/Jian.Kuang/jcsda
+#ufs_root: /home/cgibert/repo
+
+# Templates
+STAGE:
+  - $(ufs_root)/ufs-workflow/ewok/stage_templates.yaml
+  - $(ufs_root)/ufs-workflow/ewok/stage_files.yaml
+
+AN_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/an.yaml
+R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
+
+# UFS Model specifics:
+ufs_model:
+  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+  HORIZONTAL_RESOLUTION: C96
+  CCPP_SUITE: FV3_GFS_v16
+
+# How the model expects dates to be formatted (please try man strftime)
+local_date_format: '%Y%m%d.%H%M%S'
+
+horizontal_resolution: c96
+vertical_resolution: 127
+
+# forecast length
+forecast_length: PT9H
+
+# These values should be processed through some methods instead of 
+# setting values directly
+forecast_length_hours: 9
+model_timestep: 400
+output_nlons: 1
+output_nlats: 1
+layout_x: 2
+layout_y: 2
+horizontal_resolution_plus_one: 97
+vertical_resolution_plus_one: 128
+ic_day: 22
+ic_hour: 18
+ic_month: 03
+ic_year: 2021
+day: 22
+hour: 18
+month: 03
+year: 2021
+no_of_tasks: 30
+number_of_write_tasks_per_io_group: 6
+output_nlats: 384
+output_nlons: 768
+# These values should be processed through some methods instead of 
+# # setting values directly
+
+forecast:
+  exec: pwd
+  nodes: 1
+  tasks: 30
+
+HOST: hosts/orion.yaml
+r2d2_archive_database: local
+r2d2_fetch_database: default
+
+# where to find scripts
+custom_scripts: py://ufs_workflow
+
+CONTROL: $(ufs_root)/ufs-workflow/files/control.yaml
