@@ -10,16 +10,16 @@ DT_ATMOS: $(model_timestep)
 CPL: .false.
 THRD: 1
 RESTART_INTERVAL: 0
-FHROT: 0
+FHROT: 12
 coupling_interval_fast_sec: 0
 QUILTING: .true.
 WRITE_GROUP: 1
 WRTTASK_PER_GROUP: $(number_of_write_tasks_per_io_group)
 OUTPUT_HISTORY: .true.
-WRITE_DOPOST: .false.
+WRITE_DOPOST: .true.
 NUM_FILES: 2
 FILENAME_BASE: "'atm' 'sfc'"
-OUTPUT_GRID: "cubed_sphere_grid'"
+OUTPUT_GRID: "gaussian_grid"
 OUTPUT_FILE: "netcdf"
 IDEFLATE: 0
 NBITS: 0

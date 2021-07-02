@@ -7,8 +7,8 @@ __experiment__: ufs
 
 # General suite definitions
 # -------------------------
-init_cycle: 2021-03-22T18:00:00Z
-last_cycle: 2021-03-22T18:00:00Z
+init_cycle: 2021-03-22T06:00:00Z
+last_cycle: 2021-03-22T06:00:00Z
 step_cycle: PT1H
 
 # Model-related definitions
@@ -59,17 +59,17 @@ layout_y: 2
 horizontal_resolution_plus_one: 97
 vertical_resolution_plus_one: 128
 ic_day: 22
-ic_hour: 18
+ic_hour: 06
 ic_month: 03
 ic_year: 2021
 day: 22
-hour: 18
+hour: 06
 month: 03
 year: 2021
 no_of_tasks: 30
 number_of_write_tasks_per_io_group: 6
-output_nlats: 384
-output_nlons: 768
+output_nlats: 190
+output_nlons: 384
 # These values should be processed through some methods instead of 
 # # setting values directly
 
