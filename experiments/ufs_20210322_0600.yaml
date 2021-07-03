@@ -54,8 +54,8 @@ forecast_length_hours: 9
 model_timestep: 400
 output_nlons: 1
 output_nlats: 1
-layout_x: 2
-layout_y: 2
+layout_x: 3
+layout_y: 8
 horizontal_resolution_plus_one: 97
 vertical_resolution_plus_one: 128
 ic_day: 22
@@ -66,7 +66,7 @@ day: 22
 hour: 06
 month: 03
 year: 2021
-no_of_tasks: 30
+no_of_tasks: 150
 number_of_write_tasks_per_io_group: 6
 output_nlats: 190
 output_nlons: 384
@@ -75,8 +75,8 @@ output_nlons: 384
 
 forecast:
   exec: pwd
-  nodes: 1
-  tasks: 30
+  nodes: 4
+  tasks: 40
 
 HOST: hosts/orion.yaml
 r2d2_archive_database: local
