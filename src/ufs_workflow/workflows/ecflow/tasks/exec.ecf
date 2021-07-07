@@ -17,10 +17,10 @@ eval $(ewok_source_config $CONFIG_FILE current_dir stage_dir)
 cd $current_dir
 pwd
 
-#cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
-#cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/fv_core.res.nc INPUT/fv_core.res.nc
-cp -r /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/* .
+cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
+cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/fv_core.res.nc INPUT/fv_core.res.nc
+#cp -r /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/* .
 
-srun fv3.exe
+srun ufs_model
 
 %include "%ECF_INCLUDE%/tail.h"
