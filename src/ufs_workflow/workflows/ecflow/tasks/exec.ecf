@@ -1,7 +1,7 @@
 %include "%ECF_INCLUDE%/head.h"
 
-module use $( pwd -P )
-module load modules.fv3
+module use /work/noaa/marine/Jian.Kuang/ufs-weather-model/modulefiles
+module load ufs_orion.intel
 module list
 
 ulimit -s unlimited
