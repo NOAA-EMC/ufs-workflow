@@ -28,12 +28,12 @@ deflate_level=1
 /
 
 &fv_core_nml
-  layout   = @[INPES],@[JNPES]
+  layout = @[INPES],@[JNPES]
   io_layout = 1,1
-  npx      = @[NPX]
-  npy      = @[NPY]
-  ntiles   = 6,
-  npz    = @[NPZ]
+  npx = @[NPX]
+  npy = @[NPY]
+  ntiles = 6
+  npz = @[NPZ]
   grid_type = -1
   make_nh = @[MAKE_NH]
   fv_debug = .false.

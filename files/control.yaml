@@ -38,11 +38,11 @@ JNPES: $(layout_y) # layout 2nd number
 
 # Coldstart/warmstart
 WARM_START: $(warm_start)
-READ_INCREMENT: .false.
+READ_INCREMENT: .F.
 NGGPS_IC: $(nggps_ic)
-EXTERNAL_IC: .false.
-MAKE_NH: .false.
-MOUNTAIN: .true.
+EXTERNAL_IC: .F.
+MAKE_NH: .F.
+MOUNTAIN: .T.
 NA_INIT: 0
 
 # Radiation
@@ -83,13 +83,13 @@ IALB: 1
 IEMS: 1
 
 # Ozone / stratospheric H2O
-OZ_PHYS_OLD: .false.
-OZ_PHYS_NEW: .true.
+OZ_PHYS_OLD: .F.
+OZ_PHYS_NEW: .T.
 H2O_PHYS: .true.
 
 CPLFLX: .false.
-CPLWAV: .false.
-CPLWAV2ATM: .false.
+CPLWAV: .F.
+CPLWAV2ATM: .F.
 NPX: $(horizontal_resolution_plus_one) # 97
 NPY: $(horizontal_resolution_plus_one) # 97
 NPZ: $(vertical_resolution) # 64
@@ -106,9 +106,9 @@ FNSMCC: "global_soilmgldas.statsgo.t1534.3072.1536.grb"
 FNABSC: "global_mxsnoalb.uariz.t126.384.190.rg.grb"
 
 # Stochastic physics
-DO_SPPT: .false.
-DO_SHUM: .false.
-DO_SKEB: .false.
+DO_SPPT: .F.
+DO_SHUM: .F.
+DO_SKEB: .F.
 LNDP_TYPE: 0
 N_VAR_LNDP: 0
 LNDP_EACH_STEP: .false.

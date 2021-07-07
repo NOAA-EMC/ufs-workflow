@@ -14,8 +14,8 @@ step_cycle: PT1H
 # Model-related definitions
 # -------------------------
 model: gfs
-warm_start: .true.
-nggps_ic: .false.
+warm_start: .T.
+nggps_ic: .F.
 
 # Initial conditions
 init_exp: fv3_control
