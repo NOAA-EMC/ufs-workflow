@@ -50,8 +50,8 @@ forecast_length: PT9H
 
 # These values should be processed through some methods instead of 
 # setting values directly
-forecast_length_hours: 9
-model_timestep: 400
+forecast_length_hours: 24
+model_timestep: 720
 output_nlons: 1
 output_nlats: 1
 layout_x: 3

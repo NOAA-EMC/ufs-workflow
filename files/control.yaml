@@ -20,7 +20,7 @@ WRITE_DOPOST: .true.
 NUM_FILES: 2
 FILENAME_BASE: "'atm' 'sfc'"
 OUTPUT_GRID: "gaussian_grid"
-OUTPUT_FILE: "netcdf"
+OUTPUT_FILE: "'netcdf'"
 IDEFLATE: 0
 NBITS: 0
 WRITE_NEMSIOFLIP: .false.
