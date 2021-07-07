@@ -19,6 +19,8 @@ pwd
 
 cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
 cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/fv_core.res.nc INPUT/fv_core.res.nc
+cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/global_* .
+
 #cp -r /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/* .
 
 srun ufs_model
