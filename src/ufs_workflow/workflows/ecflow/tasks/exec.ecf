@@ -8,7 +8,6 @@ ulimit -s unlimited
 
 echo "Model started:  " `date`
 
-#export MPI_TYPE_DEPTH=20
 export OMP_STACKSIZE=512M
 export KMP_AFFINITY=scatter
 export OMP_NUM_THREADS=1
@@ -19,9 +18,7 @@ pwd
 
 cp /work/noaa/marine/Jian.Kuang/ufs-weather-model/build-fv3/ufs_model .
 cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/fv_core.res.nc INPUT/fv_core.res.nc
-cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/INPUT/global_* .
-
-#cp -r /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/* .
+cp /work/noaa/stmp/jkuang/stmp/jkuang/FV3_RT/rt_227267/control_restart/global_* .
 
 srun ufs_model
 
