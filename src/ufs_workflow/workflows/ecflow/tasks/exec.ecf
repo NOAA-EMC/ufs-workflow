@@ -1,9 +1,17 @@
 %include "%ECF_INCLUDE%/head.h"
 
-module use /work/noaa/marine/Jian.Kuang/ufs-weather-model/modulefiles
-module load ufs_orion.intel
+module use $( pwd -P )
+module load modules.fv3
+module list
 
-set -x
+ulimit -s unlimited
+
+echo "Model started:  " `date`
+
+#export MPI_TYPE_DEPTH=20
+export OMP_STACKSIZE=512M
+export KMP_AFFINITY=scatter
+export OMP_NUM_THREADS=1
 
 eval $(ewok_source_config $CONFIG_FILE current_dir stage_dir)
 cd $current_dir
