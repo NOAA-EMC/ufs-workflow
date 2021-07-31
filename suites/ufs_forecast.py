@@ -5,7 +5,7 @@ class UFSForecast:
 
     @staticmethod
     def build():
-        with Suite(exec_class='copy') as suite:
+        with Suite() as suite:
             with suite.add('setup') as setup:
                 create = setup.add('CreateExperiment')
                 stage = setup.add('Stage', create)
@@ -13,10 +13,10 @@ class UFSForecast:
             stop = 'config.last_cycle'
             step = 'config.step_cycle'
             with suite.add('fcCycle', start=start, stop=stop, step=step) as cycle:
-                prep = cycle.add('PrepareRun', stage)
-                analysis = cycle.add('GetAnalysis', prep, exec_class='r2d2')
-                fc = cycle.add('Forecast', setup, analysis, exec_class='executable', exec='forecast')
-                archive = cycle.add('SaveForecast', fc, exec_class='r2d2')
-                cycle.add('CleanCycles', archive, exec_class='copy')
+                analysis = cycle.add('GetAnalysis')
+                prep = cycle.add('PrepareRun', stage, analysis)
+                fc = cycle.add('Forecast', setup, analysis, prep)
+                archive = cycle.add('SaveForecast', fc)
+                cycle.add('CleanCycles', archive, )
             suite.add('FinishExperiment', cycle, defstatus='suspended')
         return suite
