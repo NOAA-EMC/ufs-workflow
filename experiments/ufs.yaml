@@ -1,16 +1,3 @@
-# A single forecast expriment using the fv3-jedi gfs model.
-
-# main attributes
-suite_class: ufs_workflow.UFSForecast
-workflow_engine: ecflow
-__experiment__: ufs
-
-# General suite definitions
-# -------------------------
-init_cycle: 2016-10-03T12:00:00Z
-last_cycle: 2016-10-03T12:00:00Z
-step_cycle: PT1H
-
 # Model-related definitions
 # -------------------------
 model: gfs
@@ -19,23 +6,13 @@ model: gfs
 init_exp: fv3_control
 init_type: an
 
-ufs_root: /work/noaa/da/rmahajan/work/Workflow/JEDI
-#ufs_root: /home/cgibert/repo
-
 # Templates
 STAGE:
-  - $(ufs_root)/ufs-workflow/ewok/stage_templates.yaml
-  - $(ufs_root)/ufs-workflow/ewok/stage_files.yaml
+  - $(suite_files)/ewok/stage_templates.yaml
+  - $(suite_files)/ewok/stage_files.yaml
 
-AN_TEMPLATE: $(ufs_root)/ufs-workflow/ewok/an.yaml
-R2D2: $(ufs_root)/ufs-workflow/ewok/r2d2.yaml
-
-# UFS Model specifics:
-ufs_model:
-  FIX_AM:  /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
-  FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-  HORIZONTAL_RESOLUTION: C192
-  CCPP_SUITE: FV3_GFS_2017
+AN_TEMPLATE: $(suite_files)/ewok/an.yaml
+R2D2: $(suite_files)/ewok/r2d2.yaml
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -46,16 +23,4 @@ vertical_resolution: 64
 # forecast length
 forecast_length: PT9H
 
-forecast:
-  exec: ls
-  nodes: 1
-  tasks: 1
-
-HOST: hosts/orion.yaml
-r2d2_archive_database: local
-r2d2_fetch_database: default
-
-# where to find scripts
-custom_scripts: py://ufs_workflow
-
-CONTROL: $(ufs_root)/ufs-workflow/files/control.yaml
+CONTROL: $(suite_files)/files/control.yaml
