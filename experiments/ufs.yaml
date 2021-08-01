@@ -1,10 +1,14 @@
 # Model-related definitions
 # -------------------------
-model: gfs
+model: ufs
 
 # Initial conditions
 init_exp: fv3_control
 init_type: an
+
+forecast:
+  exec: ls
+  tasks: 1
 
 # Templates
 STAGE:
