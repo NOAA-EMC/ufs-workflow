@@ -9,7 +9,8 @@ class UFSForecast:
         with Suite() as suite:
             with suite.add('setup') as setup:
                 create = setup.add('CreateExperiment')
-                stage = setup.add('Stage', create)
+                stage = setup.add('Stage', create,
+                                  loop_type='parallel', loop_var='MODEL', iterator=Iterator('Models'))
             start = 'config.init_cycle'
             stop = 'config.last_cycle'
             step = 'config.step_cycle'

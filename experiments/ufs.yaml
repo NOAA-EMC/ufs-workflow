@@ -1,6 +1,6 @@
 # Model-related definitions
 # -------------------------
-model: ufs
+model: gfs
 
 # Initial conditions
 init_exp: fv3_control
@@ -12,11 +12,11 @@ forecast:
 
 # Templates
 STAGE:
-  - $(suite_files)/ewok/stage_templates.yaml
-  - $(suite_files)/ewok/stage_files.yaml
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_templates.yaml
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_files.yaml
 
-AN_TEMPLATE: $(suite_files)/ewok/an.yaml
-R2D2: $(suite_files)/ewok/r2d2.yaml
+AN_TEMPLATE: yaml::$(suite_files)/ufs-workflow/ewok/an.yaml
+R2D2: yaml::$(suite_files)/ufs-workflow/ewok/r2d2.yaml
 
 # How the model expects dates to be formatted (please try man strftime)
 local_date_format: '%Y%m%d.%H%M%S'
@@ -27,4 +27,4 @@ vertical_resolution: 64
 # forecast length
 forecast_length: PT9H
 
-CONTROL: $(suite_files)/files/control.yaml
+CONTROL: yaml::$(suite_files)/ufs-workflow/files/control.yaml
