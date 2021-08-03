@@ -11,6 +11,7 @@ class UFSForecast:
                 create = setup.add('CreateExperiment')
                 stage = setup.add('Stage', create,
                                   loop_type='parallel', loop_var='MODEL', iterator=Iterator('Models'))
+                stage.add('Stage')
             start = 'config.init_cycle'
             stop = 'config.last_cycle'
             step = 'config.step_cycle'
