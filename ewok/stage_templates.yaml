@@ -1,6 +1,5 @@
 template_files:
-  root: ..
-  destination: stage_dir
+  destination: $(stage_dir)
   template:
     pattern: AT_SQUARE_BRACES
     dictionaries:

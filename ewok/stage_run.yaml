@@ -1,0 +1,4 @@
+copy_files:
+  directories:
+    - [$(stage_dir) $(run_dir)]
+
