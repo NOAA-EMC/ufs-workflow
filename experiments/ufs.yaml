@@ -28,3 +28,8 @@ vertical_resolution: 64
 forecast_length: PT9H
 
 CONTROL: yaml::$(suite_files)/ufs-workflow/files/control.yaml
+MAPPINGS: yaml::$(suite_files)/ufs-workflow/ewok/mapping.yaml
+npx: $($(horizontal_resolution))
+npy: $($(horizontal_resolution))
+npzp: $(vert$(vertical_resolution))
+
