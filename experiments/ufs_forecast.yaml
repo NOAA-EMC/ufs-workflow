@@ -12,8 +12,10 @@ step_cycle: PT1H
 
 models:
   - config: yaml::./ufs.yaml
-    FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
-    FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+    #FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+    #FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+    FIX_AM: /Users/claude/scratch/fix_am
+    FIX_fv3: /Users/claude/scratch/fix_fv3
     HORIZONTAL_RESOLUTION: C192
     CCPP_SUITE: FV3_GFS_2017
 
