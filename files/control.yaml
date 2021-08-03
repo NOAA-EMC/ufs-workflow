@@ -1,7 +1,7 @@
 # model_configure:
 ENS_NUM: 1
-TASKS: '{{tasks}}'
-SYEAR: '{{year)}}'
+TASKS: '{{EWOK_TOTAL_TASKS}}'
+SYEAR: '{{year}}'
 SMONTH: '{{month}}'
 SDAY: '{{day}}'
 SHOUR: '{{hour}}'

@@ -15,6 +15,9 @@ STAGE:
   - yaml::$(suite_files)/ufs-workflow/ewok/stage_templates.yaml
   - yaml::$(suite_files)/ufs-workflow/ewok/stage_files.yaml
 
+STAGE_RUN:
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_run.yaml
+
 AN_TEMPLATE: yaml::$(suite_files)/ufs-workflow/ewok/an.yaml
 R2D2: yaml::$(suite_files)/ufs-workflow/ewok/r2d2.yaml
 

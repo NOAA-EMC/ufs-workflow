@@ -14,4 +14,4 @@ if 'STAGE_RUN' in model_info:
     logger.info('run staging data found, processing it')
     for staging, origin in zip(model_info['STAGE_RUN'], model_info['STAGE_RUN_origin']):
         path = os.path.dirname(origin)
-        stage = Stage(path, config.stage_dir, staging)
+        stage = Stage(path, config.stage_dir, staging, config)

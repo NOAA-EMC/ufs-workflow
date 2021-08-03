@@ -1,10 +1,10 @@
-copy_files:
+copy_tree:
   directories:
-    - [$(stage_dir) $(run_dir)]
+    - [$(stage_dir), $(run_dir)]
 ewok_template:
   template:
-    pattern: AT_SQUARE_BRACES
+    pattern: DOUBLE_CURLY_BRACES
   directories:
-    - [ $(stage)/input.nml input.nml ]
-    - [ $(stage)/model_configure, model_configure ]
-    - [ $(stage)/diag_table diag_table ]
+    - [ $(stage_dir)/input.nml, $(run_dir)/input.nml ]
+    - [ $(stage_dir)/model_configure, $(run_dir)/model_configure ]
+    - [ $(stage_dir)/diag_table, $(run_dir)/diag_table ]

@@ -2,7 +2,7 @@ template_files:
   template:
     pattern: AT_SQUARE_BRACES
     dictionaries:
-      - $(suite_files)/ewok/control.yaml
+      - $(suite_files)/ufs-workflow/files/control.yaml
   directories:
     - [../files/control.nml.IN, input.nml]
     - [../files/model_configure.IN, model_configure]
