@@ -1,10 +1,10 @@
 # model_configure:
 ENS_NUM: 1
-TASKS: $(no_of_tasks)
-SYEAR: $(ic_year)
-SMONTH: $(ic_month)
-SDAY: $(ic_day)
-SHOUR: $(ic_hour)
+TASKS: '{{tasks}}'
+SYEAR: '{{year)}}'
+SMONTH: '{{month}}'
+SDAY: '{{day}}'
+SHOUR: '{{hour}}'
 FHMAX: $(forecast_length_hours)
 DT_ATMOS: $(model_timestep)
 CPL: .false.

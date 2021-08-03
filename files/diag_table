@@ -1,5 +1,5 @@
 FV3 Forecast
-$(year) $(month) $(day) $(hour) 0 0
+{{year}} {{month}} {{day}} {{hour}} 0 0
 
 "fv3_history",    0,  "hours",  1,  "hours",  "time"
 "fv3_history2d",  0,  "hours",  1,  "hours",  "time"
