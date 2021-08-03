@@ -4,6 +4,6 @@ template_files:
     dictionaries:
       - $(suite_files)/ufs-workflow/files/control.yaml
   directories:
-    - [../files/control.nml.IN, input.nml]
-    - [../files/model_configure.IN, model_configure]
-    - [../files/nems.configure, nems.configure]
+    - [../files/control.nml.IN, $(stage_dir)/input.nml]
+    - [../files/model_configure.IN, $(stage_dir)/model_configure]
+    - [../files/nems.configure, $(stage_dir)/nems.configure]
