@@ -12,6 +12,7 @@ model_info = config.get_model_info()
 
 if 'STAGE' in model_info:
     logger.info('staging data found, processing it')
-    for staging, origin in zip(model_info['STAGE_MODEL'], model_info['STAGE_MODEL_origin']):
-        path = os.path.dirname(origin)
+    stage_file = os.path.join(config.suite_files, 'ufs-workflow', 'ewok')
+    for staging in model_info['STAGE_MODEL']:
+        path = os.path.dirname(stage_file)
         stage = Stage(path, config.stage_dir, staging, config)

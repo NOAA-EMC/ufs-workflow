@@ -29,7 +29,7 @@ repos:
       - url: https://github.com/JCSDA-internal/wokling.git
         branch: develop
 
-HOST: yaml::hosts/orion.yaml
+HOST: yaml::hosts/local.yaml
 TASKS: yaml::tasks/tasks.yaml
 r2d2_archive_database: local
 r2d2_fetch_database: default
