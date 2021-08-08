@@ -8,6 +8,9 @@ from ewok.runtime import Configuration
 logger = Logger(os.environ['EWOK_TASK'])
 config = Configuration(sys.argv[1], silent=True)
 
+# adding variables from the environment specifically needed at this stage
+config['EWOK_TOTAL_TASKS'] = os.environ['EWOK_TOTAL_TASKS']
+
 model_info = config.get_model_info()
 
 if 'STAGE' in model_info:
