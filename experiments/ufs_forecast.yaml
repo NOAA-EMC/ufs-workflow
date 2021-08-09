@@ -17,7 +17,7 @@ models:
     FIX_AM: /Users/claude/scratch/fix_am
     FIX_fv3: /Users/claude/scratch/fix_fv3
     HORIZONTAL_RESOLUTION: C192
-    CCPP_SUITE: FV3_GFS_2017
+    $(stage_dir)/: FV3_GFS_2017
 
 repos:
   - category: workflow
