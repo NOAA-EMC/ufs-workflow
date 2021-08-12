@@ -6,16 +6,16 @@ workflow_engine: ecflow
 
 # General suite definitions
 # -------------------------
-init_cycle: 2016-10-03T12:00:00Z
-last_cycle: 2016-10-03T12:00:00Z
-step_cycle: PT1H
+init_cycle: 2021-03-22T12:00:00Z
+last_cycle: 2021-03-24T06:00:00Z
+step_cycle: PT6H
 
 models:
   - config: yaml::./ufs.yaml
-    #FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
-    #FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
-    FIX_AM: /Users/claude/scratch/fix_am
-    FIX_fv3: /Users/claude/scratch/fix_fv3
+    FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+    FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+    #FIX_AM: /Users/claude/scratch/fix_am
+    #FIX_fv3: /Users/claude/scratch/fix_fv3
     HORIZONTAL_RESOLUTION: C192
     $(stage_dir)/: FV3_GFS_2017
 
@@ -29,7 +29,8 @@ repos:
       - url: https://github.com/JCSDA-internal/wokling.git
         branch: develop
 
-HOST: yaml::hosts/local.yaml
+#HOST: yaml::hosts/local.yaml
+HOST: yaml::hosts/orion.yaml
 TASKS: yaml::tasks/tasks.yaml
 r2d2_archive_database: local
 r2d2_fetch_database: default

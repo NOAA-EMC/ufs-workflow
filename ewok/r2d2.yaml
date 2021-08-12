@@ -6,6 +6,9 @@ fetch:
     - model: gfs_metadata
       target_file: $(stage_dir)/INPUT/coupler.res
       user_date_format: '%Y%m%d.%H%M%S'
+    - model: gfs_metadata2
+      target_file: $(stage_dir)/INPUT/fv_core.res.nc
+      user_date_format: '%Y%m%d.%H%M%S'
 
 store:
   an:
@@ -14,5 +17,8 @@ store:
       user_date_format: '%Y%m%d.%H%M%S'
     - model: gfs_metadata
       source_file: $(current_dir)/{{local_current_cycle}}.coupler.res
+      user_date_format: '%Y%m%d.%H%M%S'
+    - model: gfs_metadata2
+      source_file: $(current_dir)/{{local_current_cycle}}.fv_core.res.nc
       user_date_format: '%Y%m%d.%H%M%S'
 

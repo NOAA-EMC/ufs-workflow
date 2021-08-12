@@ -3,12 +3,12 @@
 model: gfs
 
 # Initial conditions
-init_exp: fv3_control
+init_exp: control_c192
 init_type: an
 
 forecast:
-  exec: ls
-  tasks: 1
+  exec: ufs_model
+  tasks: 204  # nodes: 6, cores_per_node: 40
 
 # Templates
 STAGE:
@@ -25,13 +25,17 @@ R2D2: yaml::$(suite_files)/ufs-workflow/ewok/r2d2.yaml
 local_date_format: '%Y%m%d.%H%M%S'
 
 horizontal_resolution: c192
-vertical_resolution: 64
+vertical_resolution: 127
 
 # forecast length
 forecast_length: PT9H
+forecast_length_hours: 9 # this should be calculated from forecast_length
 
-CONTROL: yaml::$(suite_files)/ufs-workflow/files/control.yaml
-MAPPINGS: yaml::$(suite_files)/ufs-workflow/ewok/mapping.yaml
-npx: $($(horizontal_resolution))
-npy: $($(horizontal_resolution))
-npzp: $(vert$(vertical_resolution))
+CONTROL: yaml::$(suite_files)/ufs-workflow/files/control_$(horizontal_resolution).yaml
+MAPPINGS: yaml::$(suite_files)/ufs-workflow/ewok/mapping_$(horizontal_resolution).yaml
+
+# model_configure stuff
+number_of_write_io_groups: 1
+number_of_write_tasks_per_io_group: 12
+output_fh: "0 3 6 9"
+iau_offset: 0
