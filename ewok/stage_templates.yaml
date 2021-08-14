@@ -2,6 +2,6 @@ ewok_template:
   template:
     pattern: AT_SQUARE_BRACES
   directories:
-    - [../files/control.nml.IN, $(stage_dir)/input.nml]
-    - [../files/model_configure.IN, $(stage_dir)/model_configure]
-    - [../files/nems.configure, $(stage_dir)/nems.configure]
+    - [../files/control.nml.IN, $(stage_dir)/input.nml.tmpl]
+    - [../files/model_configure.IN, $(stage_dir)/model_configure.tmpl]
+    - [../files/nems.configure, $(stage_dir)/nems.configure.tmpl]

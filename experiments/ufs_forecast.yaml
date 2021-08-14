@@ -28,6 +28,8 @@ repos:
         branch: feature/new_ewok
       - url: https://github.com/JCSDA-internal/wokling.git
         branch: develop
+      - url: https://github.com/ufs-community/ufs-weather-model.git
+        branch: develop
 
 #HOST: yaml::hosts/local.yaml
 HOST: yaml::hosts/orion.yaml

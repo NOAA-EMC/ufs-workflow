@@ -5,6 +5,6 @@ ewok_template:
   template:
     pattern: DOUBLE_CURLY_BRACES
   directories:
-    - [ $(stage_dir)/input.nml, $(run_dir)/input.nml ]
-    - [ $(stage_dir)/model_configure, $(run_dir)/model_configure ]
-    - [ $(stage_dir)/diag_table, $(run_dir)/diag_table ]
+    - [ $(stage_dir)/input.nml.tmpl, $(run_dir)/input.nml ]
+    - [ $(stage_dir)/model_configure.tmpl, $(run_dir)/model_configure ]
+    - [ $(stage_dir)/diag_table.tmpl, $(run_dir)/diag_table ]
