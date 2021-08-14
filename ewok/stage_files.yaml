@@ -85,7 +85,9 @@ copy_files:
 # Tables: diag_table is a template with datetime and forecast length, other are static
     - [ ../files/diag_table,  $(stage_dir)/diag_table.tmpl]
     - [ ../files/field_table, $(stage_dir)/field_table]
-    - [ ../files/fd_nems.yaml, $(stage_dir)/fd_nems.yaml]
+
+# fd_nems.yaml is present in the UFSWM repository
+    - [ $(suite_files)/ufs-weather-model/tests/parm/fd_nems.yaml, $(stage_dir)/fd_nems.yaml]
 
 ## For future use
 ## CCPP Suite specific CCPP_SUITE in FV3_GSD_v0, FV3_GSD_noah
