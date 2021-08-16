@@ -10,6 +10,11 @@ forecast:
   exec: ufs_model
   tasks: 1  # for testing of staging into run_dir
   #tasks: 204  # nodes: 6, cores_per_node: 40
+# Rahul Mahajan:
+# Repeating here for ewok_source_config, since it does not know how to get
+# forecast:exec and forecast:tasks
+forecast_exec: ufs_model
+forecast_tasks: 1
 
 # Templates
 STAGE:

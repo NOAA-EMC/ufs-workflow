@@ -89,6 +89,11 @@ copy_files:
 # fd_nems.yaml is present in the UFSWM repository
     - [ $(suite_files)/ufs-weather-model/tests/parm/fd_nems.yaml, $(stage_dir)/fd_nems.yaml]
 
+# ufs_model executables and corressponding modulefiles
+    - [ $(suite_files)/ufs-weather-model/tests/fv3_1.exe, $(stage_dir)/ufs_model]
+    - [ $(suite_files)/ufs-weather-model/tests/module-setup.sh, $(stage_dir)/module-setup.sh]
+    - [ $(suite_files)/ufs-weather-model/tests/modules.fv3_1, $(stage_dir)/modules.ufs_model]
+
 ## For future use
 ## CCPP Suite specific CCPP_SUITE in FV3_GSD_v0, FV3_GSD_noah
 #    - [$(FIX_AM)/CCN_ACTIVATE.BIN, $(stage_dir)/CCN_ACTIVATE.BIN]
