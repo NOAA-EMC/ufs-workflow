@@ -1,10 +1,8 @@
 # model_configure:
-ENS_NUM: 1
-TASKS: '{{EWOK_TOTAL_TASKS}}'
-SYEAR: '{{year}}'
-SMONTH: '{{month}}'
-SDAY: '{{day}}'
-SHOUR: '{{hour}}'
+SYEAR: '@<year>'
+SMONTH: '@<month>'
+SDAY: '@<day>'
+SHOUR: '@<hour>'
 FHMAX: $(forecast_length_hours)
 DT_ATMOS: $(model_timestep)
 CPL: .false.

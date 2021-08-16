@@ -38,4 +38,8 @@ tasks:
   MergeDiags:
     exec_class: processing
 
-
+  # UFS Forecast
+  UFSForecast:
+    exec_class: executable
+    #application: forecast
+    #application: ufsforecast

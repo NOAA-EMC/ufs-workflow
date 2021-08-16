@@ -22,7 +22,7 @@ class UFSForecast:
                                loop_var='MODEL', iterator=Iterator('Models')) as models:
                     analysis = models.add('GetAnalysis')
                     prep = models.add('PrepareModel', stage, analysis)
-                    #fc = models.add('Forecast', setup, analysis, analysis)
+                    fc = models.add('UFSForecast', prep)
                     #archive = models.add('SaveForecast', fc)
                 cycle.add('EndCycle', models)
                 cycle.add('CleanCycles', models)
