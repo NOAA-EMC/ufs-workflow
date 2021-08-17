@@ -1,5 +1,8 @@
 copy_files:
   directories:
+# Create empty RESTART directory (solo.stage needs something on LHS. Cannot create empty directory)
+    - [/dev/null, $(stage_dir)/RESTART/.null]
+
 # Files in run/INPUT directory
     - [$(FIX_fv3)/$(HORIZONTAL_RESOLUTION)/$(HORIZONTAL_RESOLUTION)_mosaic.nc,         $(stage_dir)/INPUT/grid_spec.nc]
     - [$(FIX_fv3)/$(HORIZONTAL_RESOLUTION)/$(HORIZONTAL_RESOLUTION)_grid.tile1.nc,     $(stage_dir)/INPUT/$(HORIZONTAL_RESOLUTION)_grid.tile1.nc]
@@ -83,16 +86,20 @@ copy_files:
     - [$(FIX_AM)/global_mxsnoalb.uariz.t1534.3072.1536.rg.grb,       $(stage_dir)/global_mxsnoalb.uariz.t1534.3072.1536.rg.grb]
 
 # Tables: diag_table is a template with datetime and forecast length, other are static
-    - [ ../files/diag_table,  $(stage_dir)/diag_table]
-    - [ ../files/field_table, $(stage_dir)/field_table]
+    - [../files/diag_table,  $(stage_dir)/diag_table]
+    - [../files/field_table, $(stage_dir)/field_table]
 
 # fd_nems.yaml is present in the UFSWM repository
-    - [ $(suite_files)/ufs-weather-model/tests/parm/fd_nems.yaml, $(stage_dir)/fd_nems.yaml]
+    - [$(suite_files)/ufs-weather-model/tests/parm/fd_nems.yaml, $(stage_dir)/fd_nems.yaml]
 
 # ufs_model executables and corressponding modulefiles
-    - [ $(suite_files)/ufs-weather-model/tests/fv3_1.exe, $(stage_dir)/ufs_model]
-    - [ $(suite_files)/ufs-weather-model/tests/modules.fv3_1, $(stage_dir)/modules.ufs_model]
-    - [ $(suite_files)/ufs-weather-model/NEMS/src/conf/module-setup.sh.inc, $(stage_dir)/module-setup.sh]
+    - [$(suite_files)/ufs-weather-model/tests/fv3_1.exe,                   $(stage_dir)/ufs_model]
+    - [$(suite_files)/ufs-weather-model/tests/modules.fv3_1,               $(stage_dir)/modules.ufs_model]
+    - [$(suite_files)/ufs-weather-model/NEMS/src/conf/module-setup.sh.inc, $(stage_dir)/module-setup.sh]
+
+# inline postxconfig files
+    - [$(suite_files)/ufs-weather-model/tests/parm/postxconfig-NT.txt,      $(stage_dir)/postxconfig-NT.txt]
+    - [$(suite_files)/ufs-weather-model/tests/parm/postxconfig-NT_FH00.txt, $(stage_dir)/postxconfig-NT_FH00.txt]
 
 ## For future use
 ## CCPP Suite specific CCPP_SUITE in FV3_GSD_v0, FV3_GSD_noah
@@ -100,4 +107,3 @@ copy_files:
 #    - [$(FIX_AM)/freezeH2O.dat,    $(stage_dir)/freezeH2O.dat]
 #    - [$(FIX_AM)/qr_acr_qg.dat,    $(stage_dir)/qr_acr_qg.dat]
 #    - [$(FIX_AM)/qr_acr_qs.dat,    $(stage_dir)/qr_acr_qs.dat]
-

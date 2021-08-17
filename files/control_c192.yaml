@@ -14,7 +14,7 @@ QUILTING: .true.
 WRITE_GROUP: $(number_of_write_io_groups)
 WRTTASK_PER_GROUP: $(number_of_write_tasks_per_io_group)
 OUTPUT_HISTORY: .true.
-WRITE_DOPOST: .true.
+WRITE_DOPOST: .falle.
 NUM_FILES: 2
 FILENAME_BASE: "'atm' 'sfc'"
 OUTPUT_GRID: "gaussian_grid"
