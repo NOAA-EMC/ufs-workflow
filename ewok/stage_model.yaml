@@ -3,7 +3,7 @@ copy_tree:
     - [$(stage_dir), $(run_dir)]
 ewok_template:
   template:
-    pattern: AT_CARROTS
+    pattern: AT_ANGLE_BRACKETS
   directories:
     - [ $(stage_dir)/input.nml, $(run_dir)/input.nml ]
     - [ $(stage_dir)/model_configure, $(run_dir)/model_configure ]
