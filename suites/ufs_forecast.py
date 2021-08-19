@@ -21,8 +21,7 @@ class UFSForecast:
                 with cycle.add('Models', loop_type='parallel',
                                loop_var='MODEL', iterator=Iterator('Models')) as models:
                     analysis = models.add('GetAnalysis')
-                    prep = models.add('PrepareModel', stage, analysis)
-                    fc = models.add('Forecast', prep)
+                    fc = models.add('Forecast', stage,analysis)
                     #archive = models.add('SaveForecast', fc)
                 cycle.add('EndCycle', models)
                 cycle.add('CleanCycles', models)
