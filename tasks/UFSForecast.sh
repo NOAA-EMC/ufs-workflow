@@ -3,11 +3,11 @@
 set -eux
 echo -n " $( date +%s )," >  job_timestamp.txt
 
-ntasks=$(ewok_source_config $CONFIG_FILE ufsforecast_tasks)
+eval $(ewok_source_config $CONFIG_FILE ufsforecast_tasks)
 
 set +x
 source ./module-setup.sh
-module use $( pwd -P )
+module use .
 module load modules.ufs_model
 module list
 set -x
@@ -20,7 +20,7 @@ export OMP_STACKSIZE=512M
 export KMP_AFFINITY=scatter
 export OMP_NUM_THREADS=1
 
-srun --label -n $ntasks ./ufs_model
+srun --label -n $ufsforecast_tasks ./ufs_model
 
 echo "Model ended:    " `date`
 echo -n " $( date +%s )," >> job_timestamp.txt

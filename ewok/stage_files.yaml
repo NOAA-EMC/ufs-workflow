@@ -95,6 +95,7 @@ copy_files:
 # ufs_model executables and corressponding modulefiles
     - [$(suite_files)/ufs-weather-model/tests/fv3_1.exe,                   $(stage_dir)/ufs_model]
     - [$(suite_files)/ufs-weather-model/tests/modules.fv3_1,               $(stage_dir)/modules.ufs_model]
+    - [$(suite_files)/ufs-weather-model/modulefiles/ufs_common,            $(stage_dir)/ufs_common]
     - [$(suite_files)/ufs-weather-model/NEMS/src/conf/module-setup.sh.inc, $(stage_dir)/module-setup.sh]
 
 # inline postxconfig files

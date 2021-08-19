@@ -33,3 +33,5 @@ HOST: yaml::hosts/orion.yaml
 TASKS: yaml::tasks/tasks.yaml
 r2d2_archive_database: local
 r2d2_fetch_database: default
+
+ufsforecast_tasks: 204
