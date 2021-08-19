@@ -9,12 +9,10 @@ init_type: an
 forecast:
   exec: ufs_model
   partition: debug
-  qos: debug  
+  qos: debug
   nodes: 6
   tasks: 34
-#  tasks: 204  # nodes: 6, cores_per_node: 40 (240 footprint), but 204 is for UFS model
-#  tasks: 1
-#  wall_time: 00:02:00
+  wall_time: 00:15:00
   env_mod: $(suite_files)/ufs-workflow/env_mod/ufs.sh
 
 # Templates
