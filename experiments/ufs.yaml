@@ -1,0 +1,46 @@
+# Model-related definitions
+# -------------------------
+model: gfs
+
+# Initial conditions
+init_exp: control_c192
+init_type: an
+
+forecast:
+  exec: ufs_model
+  partition: debug
+  qos: debug
+  nodes: 6
+  tasks: 34
+  wall_time: 00:15:00
+  env_mod: $(suite_files)/ufs-workflow/env_mod/ufs.sh
+
+# Templates
+STAGE:
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_templates.yaml
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_files.yaml
+
+STAGE_MODEL:
+  - yaml::$(suite_files)/ufs-workflow/ewok/stage_model.yaml
+
+AN_TEMPLATE: yaml::$(suite_files)/ufs-workflow/ewok/an.yaml
+R2D2: yaml::$(suite_files)/ufs-workflow/ewok/r2d2.yaml
+
+# How the model expects dates to be formatted (please try man strftime)
+local_date_format: '%Y%m%d.%H%M%S'
+
+horizontal_resolution: c192
+vertical_resolution: 127
+
+# forecast length
+forecast_length: PT9H
+forecast_length_hours: 9 # this should be calculated from forecast_length
+
+CONTROL: yaml::$(suite_files)/ufs-workflow/files/control_$(horizontal_resolution).yaml
+MAPPINGS: yaml::$(suite_files)/ufs-workflow/ewok/mapping_$(horizontal_resolution).yaml
+
+# model_configure stuff
+number_of_write_io_groups: 1
+number_of_write_tasks_per_io_group: 12
+output_fh: "0 3 6 9"
+iau_offset: 0

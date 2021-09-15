@@ -1,0 +1,37 @@
+# A single forecast experiment using the fv3-jedi gfs model.
+
+# main attributes
+suite_class: UFSForecast
+workflow_engine: ecflow
+
+# General suite definitions
+# -------------------------
+init_cycle: 2021-03-22T12:00:00Z
+last_cycle: 2021-03-24T06:00:00Z
+step_cycle: PT6H
+
+models:
+  - config: yaml::./ufs.yaml
+    FIX_AM: /work/noaa/global/glopara/fix_nco_gfsv16/fix_am
+    FIX_fv3: /work/noaa/global/glopara/fix_nco_gfsv16/fix_fv3_gmted2010
+    HORIZONTAL_RESOLUTION: C192
+    $(stage_dir)/: FV3_GFS_2017
+
+repos:
+  - category: workflow
+    path: $(suite_files)
+    required: yes
+    git:
+      - url: https://github.com/NOAA-EMC/ufs-workflow.git
+        branch: feature/new_ewok
+      - url: https://github.com/JCSDA-internal/wokling.git
+        branch: develop
+      - url: https://github.com/ufs-community/ufs-weather-model.git
+        branch: develop
+
+HOST: yaml::hosts/orion.yaml
+TASKS: yaml::tasks/tasks.yaml
+r2d2_archive_database: local
+r2d2_fetch_database: default
+
+ufsforecast_tasks: 204

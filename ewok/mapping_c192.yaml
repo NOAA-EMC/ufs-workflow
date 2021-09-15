@@ -1,0 +1,15 @@
+# Resolution dependent parameters
+
+npx: 193
+npy: 193
+npz: 127
+npzp: 128
+layout_x: 4
+layout_y: 8
+model_timestep: 360
+cdmbwd: 0.23,1.5,1.0,1.0
+
+# Gaussian grid output
+nlons: 768
+nlats: 384
+

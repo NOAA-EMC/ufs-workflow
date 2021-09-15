@@ -1,0 +1,7 @@
+ewok_template:
+  template:
+    pattern: AT_SQUARE_BRACES
+  directories:
+    - [$(suite_files)/ufs-weather-model/tests/parm/control.nml.IN, $(stage_dir)/input.nml]
+    - [$(suite_files)/ufs-weather-model/tests/parm/model_configure.IN, $(stage_dir)/model_configure]
+    - [$(suite_files)/ufs-weather-model/tests/parm/nems.configure, $(stage_dir)/nems.configure]
